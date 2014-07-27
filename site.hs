@@ -2,17 +2,15 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import           Text.Pandoc
+import qualified Data.Map as M
 
 
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-    match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-    
-    match "images/*/*/*" $ do
-        route   idRoute
+    match "images/**" $ do
+        route   (gsubRoute "images/" (const ""))
         compile copyFileCompiler
     
     match "fonts/*" $ do
@@ -35,10 +33,11 @@ main = hakyll $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocCompilerWith defaultHakyllReaderOptions pandocOptions
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/post-default.html" postCtx
+            >>= loadAndApplyTemplate "templates/post-default.html"  (mathCtx `mappend` defaultContext)
             >>= relativizeUrls
+
 
     create ["archive.html"] $ do
         route idRoute
@@ -77,3 +76,15 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+
+mathCtx :: Context a
+mathCtx = field "mathjax" $ \item -> do
+  metadata <- getMetadata $ itemIdentifier item
+  return $ if "mathjax" `M.member` metadata
+             then "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
+             else ""
+
+
+pandocOptions :: WriterOptions
+pandocOptions = defaultHakyllWriterOptions { writerHTMLMathMethod = MathJax "" }
