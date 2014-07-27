@@ -1,12 +1,21 @@
 ---
 layout: post
-title: "Digging Deeper at Haskell Instance Definition"
+title: Digging Deeper at Haskell Instance Definition
 date: 2011-12-07 02:44
 comments: true
 categories: haskell 
 ---
 If you try to compiler the following clip of code with ghc
-{% gist 1442126 test01.hs %}
+```
+class C a where
+    toString :: a -> String
+
+instance C String where
+    toString = id
+
+main = do
+    putStrLn $ toString "Hello World"
+```
 
 The compiler will pop out the error message.
 ```
@@ -20,13 +29,35 @@ In the instance declaration for `C String'
 
 What does it mean?
 Let's try another run with much simpler type.
-{% gist 1442126 test02.hs %}
+```
+class C a where
+    toString :: a -> String
+
+instance C Int where
+    toString = show
+
+instance C Double where
+    toString = show
+
+main = do
+    putStrLn $ toString (123::Int)
+    putStrLn $ toString (123.123::Double)
+```
 
 What? it works very well.
 
 Give another try.
 We replace `String` to `[Char]`. 
-{% gist 1442126 test03.hs %}
+```
+class C a where
+    toString :: a -> String
+
+instance C [Char] where
+    toString = id
+
+main = do
+    putStrLn $ toString "Hello World"
+```
 
 But it still doesn't work.
 ```
@@ -40,16 +71,56 @@ In the instance declaration for `C [Char]'
 ```
 
 Suprisingly, this does work.
-{% gist 1442126 test04.hs %}
+```
+class C a where
+    toString :: a -> String
+
+instance Show a => C [a] where
+    toString = concat . (map show)
+
+main = do
+    putStrLn $ toString ([1,2,3,4]::[Int])
+```
 
 So the problem is not about list constructor `[]`?
 
 Let's go to a simple cure directly.
 That is to add `{-# LANGUAGE FlexibleInstances #-}`, i.e. use FlexibleInstances GHC extension. 
-{% gist 1442126 test05.hs %}
+```
+{-# LANGUAGE FlexibleInstances #-}
+class C a where
+    toString :: a -> String
+
+instance C Int where
+    toString = show
+
+instance C Double where
+    toString = show
+
+instance C [Char] where
+    toString = id
+
+instance C [Int] where
+    toString = concat . (map show)
+
+main = do
+    putStrLn $ toString (123::Int)
+    putStrLn $ toString "Hello World"
+    putStrLn $ toString ([1,2,3,4,5]::[Int])
+```
 
 That works for `C [Char]`, but still doesn't work for `C String`
-{% gist 1442126 test06.hs %}
+```
+{-# LANGUAGE FlexibleInstances #-}
+class C a where
+    toString :: a -> String
+
+instance C String where
+    toString = id
+
+main = do
+    putStrLn $ toString "Hello World"
+```
 
 ```
 test06.hs:5:10:
@@ -91,7 +162,18 @@ go ahead to read [SPJ's paper Sec.4.5](http://research.microsoft.com/en-us/um/pe
 
 
 The result is as expected if we try Type synonym, as the standard said the Type synonym is forbidden.
-{% gist 1442126 test07.hs %}
+```
+type Identifier = String
+
+class C a where
+    toString :: a -> String
+
+instance C Identifier where
+    toString = show
+
+main = do
+    putStrLn $ toString ("Hello World"::Identifier)
+```
 
 
 [Flexible Instances GHC extension](http://hackage.haskell.org/trac/haskell-prime/wiki/FlexibleInstances) is to give us more flexible instance defition form,
@@ -120,8 +202,33 @@ To resolve the issue and at the same time conforming Haskell 98,
 [This link](http://www.haskell.org/haskellwiki/List_instance) listed two methods.
 
 One is to use newtype
-{% gist 1442126 test08.hs %}
+```
+class C a where
+    toString :: a -> String
+
+newtype Identifier = Identifier String deriving (Show)
+
+instance C Identifier where
+    toString = show
+
+main = do
+    putStrLn $ toString (Identifier "Hello")
+```
 
 Another way is to define another `listToString`
-{% gist 1442126 test09.hs %}
+```
+class C a where
+    toString :: a -> String
+    listToString :: [a] -> String
+
+instance C Char where
+    toString = show
+    listToString = id
+
+instance C a => C [a] where
+    toString = listToString
+
+main = do
+    putStrLn $ toString ("Hello"::[Char])
+```
 

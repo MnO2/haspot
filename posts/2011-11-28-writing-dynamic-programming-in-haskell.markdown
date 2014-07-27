@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writing Dynamic Programming in Haskell"
+title: Writing Dynamic Programming in Haskell
 date: 2011-11-28 04:18
 comments: true
 categories: haskell 
@@ -23,7 +23,22 @@ The following lists six implementations of [problem31 of project euler](http://p
 one uses data-memocombinators, one uses MemoTrie, another from HaskellWiki exploits lazy evaluation,
 one uses immutable array to implement that. The rest two are from stackoverflow provided by John Lato.
 
-{% gist 1426637 sol01.hs %}
+```
+import qualified Data.MemoCombinators as Memo
+
+coins = [1,2,5,10,20,50,100,200]
+
+sol1 = f
+    where f :: Int -> Int -> Int
+          f = Memo.memo2 Memo.integral (Memo.arrayRange (0,7)) mf
+            where mf :: Int -> Int -> Int
+                  mf n k | (k >= 8) || (n < 0) = 0
+                         | n == 0 = 1
+                         | otherwise = (f n (k+1)) + (f (n - coins !! k) k)
+
+main = do
+    print $ sol1 200 0
+```
 
 ```
 ./sol01 +RTS -sstderr 
@@ -51,7 +66,24 @@ one uses immutable array to implement that. The rest two are from stackoverflow 
   Productivity  85.8% of total user, 91.4% of total elapsed
 ```
 
-{% gist 1426637 sol02.hs %}
+```
+coins = [1,2,5,10,20,50,100,200]
+
+sol2 = mf
+    where memo :: (Num a, Enum a) => (a -> b) -> [b]
+          memo f = map f (enumFrom 0)
+          mf :: Int -> Int -> Int
+          mf = \n k -> fvalue !! n !! k
+          fvalue = fmap memo (memo f)
+          f :: Int -> Int -> Int
+          f n k | (k >= 8) || (n < 0) = 0
+                | n == 0 = 1
+                | otherwise = (if k < 7 then mf n (k+1) else 0) + (if n - coins!!k >= 0 then mf (n - coins !! k) k else 0)
+
+main = do
+    print $ sol2 200 0
+```
+
 ```
 ./sol02 +RTS -sstderr 
          334,684 bytes allocated in the heap
@@ -80,7 +112,18 @@ one uses immutable array to implement that. The rest two are from stackoverflow 
 
 
 
-{% gist 1426637 sol03.hs %}
+```
+coins = [1,2,5,10,20,50,100,200]
+
+sol3 = (!!) (ways [1,2,5,10,20,50,100,200])
+    where ways [] = 1 : repeat 0
+          ways (coin:coins) = n
+              where n = zipWith (+) (ways coins) (replicate coin 0 ++ n)
+
+main = do
+    print $ sol3 200
+```
+
 ```
 ./sol03 +RTS -sstderr 
          248,052 bytes allocated in the heap
@@ -108,8 +151,23 @@ one uses immutable array to implement that. The rest two are from stackoverflow 
 ```
 
 
+```
+import qualified Data.MemoTrie as MT
 
-{% gist 1426637 sol04.hs %}
+coins = [1,2,5,10,20,50,100,200]
+
+sol4 = f
+    where f :: Int -> Int -> Int
+          f = MT.memo2 mf
+            where mf :: Int -> Int -> Int
+                  mf n k | (k >= 8) || (n < 0) = 0
+                         | n == 0 = 1
+                         | otherwise = (f n (k+1)) + (f (n - coins !! k) k)
+
+main = do
+    print $ sol4 200 0
+```
+
 ```
 ./sol04 +RTS -sstderr 
        3,992,108 bytes allocated in the heap
@@ -138,7 +196,31 @@ one uses immutable array to implement that. The rest two are from stackoverflow 
 
 
 
-{% gist 1426637 sol05.hs %}
+```
+import Data.Maybe
+import qualified Data.Map as M
+
+
+coins = [1,2,5,10,20,50,100,200]
+
+sol5 = mf
+    where memo :: (Num a, Enum a) => (a -> b) -> [b]
+          memo f = map f (enumFrom 0)
+          gwvals = fmap memo (memo f)
+          gwByMap :: Int -> Int -> Int -> Int -> Int
+          gwByMap maxX maxY = \x y ->  fromMaybe (f x y) $ M.lookup (x,y) memomap
+            where memomap = M.fromList $ concat [[((x',y'), z) | (y',z) <- zip [0..maxY] ys] | (x',ys) <- zip [0..maxX] gwvals]
+          mf :: Int -> Int -> Int
+          mf = gwByMap 205 8
+          f :: Int -> Int -> Int
+          f n k | (k >= 8) || (n < 0) = 0
+                | n == 0 = 1
+                | otherwise = (if k < 7 then mf n (k+1) else 0) + (if n - coins!!k >= 0 then mf (n - coins !! k) k else 0)
+
+main = do
+    print $ sol5 200 0
+```
+
 ```
 ./sol05 +RTS -sstderr 
        1,856,632 bytes allocated in the heap
@@ -165,7 +247,23 @@ one uses immutable array to implement that. The rest two are from stackoverflow 
   Productivity  82.3% of total user, 89.4% of total elapsed
 ```
 
-{% gist 1426637 sol06.hs %}
+```
+import Data.Array.IArray
+
+coins = [1,2,5,10,20,50,100,200]
+
+sol6 = ans
+    where ans :: Int -> Int -> Int
+          ans n k = table ! (n, k)
+            where table :: Array (Int, Int) Int
+                  table = listArray ((0,0), (300,7)) [f i j | i <- [0..n], j <- [0..7]]
+                  f n k | (k >= 8) || (n < 0) = 0
+                        | n == 0 = 1
+                        | otherwise = (if k < 7 then table ! (n, (k+1)) else 0) + (if (n - coins!!k) >= 0 then table ! ((n - coins !! k), k) else 0)
+
+main = do
+    print $ sol6 200 0
+```
 
 ```
 ./sol06 +RTS -sstderr 

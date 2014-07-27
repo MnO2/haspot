@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Yet Another Guide to Understand Iteratee for Haskell Programmers"
+title: Yet Another Guide to Understand Iteratee for Haskell Programmers
 date: 2011-11-19 07:23
 comments: true
 categories: haskell 
@@ -46,26 +46,244 @@ Since the ByteString is used in the iteratee implementation, to be parallel,
 it imports `Data.ByteString.Lazy.Char8`.
 It also uses `readFile` intentionally to be an lazy IO program.
 Otherwise not much to address.
-{% gist 1378936 allfirstlines_naive.hs %}
+```
+import Control.Monad
+import Control.Monad.IO.Class
+import Control.Applicative
+import System.Environment
+import System.Directory
+import System.FilePath
+import qualified Data.List as L
+import qualified Data.ByteString.Lazy.Char8 as B
+
+
+getValidContents :: FilePath -> IO [String]
+getValidContents path =
+    filter (`notElem` [".", "..", ".git", ".svn"])
+    <$> getDirectoryContents path
+
+
+isSearchableDir :: FilePath -> IO Bool
+isSearchableDir dir =
+    (&&) <$> doesDirectoryExist dir
+         <*> (searchable <$> getPermissions dir)
+
+
+getRecursiveContents :: FilePath -> IO [FilePath]
+getRecursiveContents dir = do
+    cnts <- map (dir </>) <$> getValidContents dir
+    cnts' <- forM cnts $ \path -> do
+        isDirectory <- isSearchableDir path
+        if isDirectory
+            then getRecursiveContents path
+            else return [path]
+    return . concat $ cnts'
+
+
+firstLine :: FilePath -> IO B.ByteString
+firstLine file = do
+    b <- B.readFile file
+    return $ head . B.lines $ b
+
+
+allFirstLines :: FilePath -> IO ()
+allFirstLines dir = do
+    filepaths <- getRecursiveContents dir
+    l <- mapM firstLine $ filepaths
+    mapM_ B.putStrLn l
+
+
+main = do
+    dir:_ <- getArgs
+    allFirstLines dir
+```
 
 Next we look at the iteratee implementation.
 I re-implement `enumDir` function from Kazy's tutorial with iteratee package.
 It may be a personal taste, an implementation with `enumerator` would be beginner friendly than an implementation with `iteratee` in my opinion.
 I also implement an enumeratee to adapt an enumerator of filepaths to an enumerator of bytestrings: `firstLineE`.
 In `firstLineE` I adopt enumerator and enumeratee provided by the `iteratee` package to reduce the work.
-{% gist 1378936 allfirstlines_iteratee.hs %}
+
+```
+import Control.Monad
+import Control.Monad.IO.Class
+import Control.Applicative
+import System.Environment
+import System.Directory
+import System.FilePath
+import qualified Data.List as L
+import qualified Data.ByteString as B
+import qualified Data.Iteratee as I
+import Data.Iteratee.Iteratee
+import qualified Data.Iteratee.Char as EC
+import qualified Data.Iteratee.IO.Fd as EIO
+import qualified Data.Iteratee.ListLike as EL
+
+
+getValidContents :: FilePath -> IO [String]
+getValidContents path =
+    filter (`notElem` [".", "..", ".git", ".svn"])
+    <$> getDirectoryContents path
+
+
+isSearchableDir :: FilePath -> IO Bool
+isSearchableDir dir =
+    (&&) <$> doesDirectoryExist dir
+         <*> (searchable <$> getPermissions dir)
+
+
+getRecursiveContents :: FilePath -> IO [FilePath]
+getRecursiveContents dir = do
+    cnts <- map (dir </>) <$> getValidContents dir
+    cnts' <- forM cnts $ \path -> do
+        isDirectory <- isSearchableDir path
+        if isDirectory
+            then getRecursiveContents path
+            else return [path]
+    return . concat $ cnts'
+
+
+printI :: Iteratee [B.ByteString] IO ()
+printI = do
+    mx <- EL.tryHead
+    case mx of
+         Nothing -> return ()
+         Just l -> do
+             liftIO . B.putStrLn $ l
+             printI
+
+
+firstLineE :: Enumeratee [FilePath] [B.ByteString] IO ()
+firstLineE = mapChunksM $ \filenames -> do
+    forM filenames $ \filename -> do
+        i <- EIO.enumFile 1024 filename $ joinI $ ((mapChunks B.pack) ><> EC.enumLinesBS) EL.head
+        result <- run i
+        return result
+
+
+enumDir :: FilePath -> Enumerator [FilePath] IO b
+enumDir dir iter = runIter iter idoneM onCont
+    where
+        onCont k Nothing = do
+            (files, dirs) <- liftIO getFilesDirs
+            if null dirs
+                then return $ k (Chunk files)
+                else walk dirs $ k (Chunk files)
+        walk dirs = foldr1 (>>>) $ map enumDir dirs
+        getFilesDirs = do
+            cnts <- map (dir </>) <$> getValidContents dir
+            (,) <$> filterM doesFileExist cnts
+                <*> filterM isSearchableDir cnts
+
+
+allFirstLines :: FilePath -> IO ()
+allFirstLines dir = do
+    i' <- enumDir dir $ joinI $ firstLineE printI
+    run i'
+
+
+main = do
+    dir:_ <- getArgs
+    allFirstLines dir
+```
 
 To test the effect of different implementation, I prepare three test cases.
-{% gist 1378936 run_test.sh %}
+```
+#!/usr/bin/bash
+
+LOGDIR=log
+mkdir -p $LOGDIR
+
+ulimit -aS > $LOGDIR/ulimit_stat.log
+
+if [[ ! -d test01 ]]; then
+    mkdir -p test01
+    cd test01
+    for f in $(seq 1 500)
+    do
+        echo $RANDOM > $f
+    done
+    cd ..
+fi
+
+./allfirstlines_naive test01/ +RTS -sstderr -RTS 2> $LOGDIR/allfirstlines_naive_test01.log 1>/dev/null
+./allfirstlines_iteratee test01/ +RTS -sstderr -RTS 2> $LOGDIR/allfirstlines_iteratee_test01.log 1>/dev/null
+
+if [[ ! -d test02 ]]; then
+    mkdir -p test02
+    cd test02
+    for f in $(seq 1 2048)
+    do
+        echo $RANDOM > $f
+    done
+    cd ..
+fi
+
+./allfirstlines_naive test02/ +RTS -sstderr -RTS 2> $LOGDIR/allfirstlines_naive_test02.log 1>/dev/null
+./allfirstlines_iteratee test02/ +RTS -sstderr -RTS 2> $LOGDIR/allfirstlines_iteratee_test02.log 1>/dev/null
+
+
+if [[ ! -d test03 ]]; then
+    mkdir -p test03
+    ./gen_nuclear_test test03
+fi
+
+./allfirstlines_naive test03/ +RTS -sstderr -RTS 2> $LOGDIR/allfirstlines_naive_test03.log 1>/dev/null
+./allfirstlines_iteratee test03/ +RTS -sstderr -RTS 2> $LOGDIR/allfirstlines_iteratee_test03.log 1>/dev/null
+```
 The first test case is the most easy one, a directory containing 500 files,
 and the second one is a directory containing more than 2000 files, that would possibly exhaust file descriptors.
 The third one add another layer of complication, with directory hierarchy containing a total of more than 2000 files,
 The third one is generated with a haskell script as follows:
-{% gist 1378936 gen_nuclear_test.hs %}
+```
+import Control.Monad
+import System.Directory
+import System.Environment
+
+layer :: Int -> IO ()
+layer depth = do
+    if (depth <= 0)
+        then do mapM_ (flip writeFile "b!") (map show [1..2])
+                return ()
+        else do createDirectory "0"
+                setCurrentDirectory "0"
+                layer $ depth-1
+                setCurrentDirectory ".."
+
+                createDirectory "1"
+                setCurrentDirectory "1"
+                layer $ depth-1
+                setCurrentDirectory ".."
+
+
+main = do
+    (dir:_) <- getArgs
+    setCurrentDirectory dir
+    putStrLn "creating ..." >> layer 10 >> putStrLn "done!"
+```
 
 For convenience, I write a simple Makefile to make the test command be reduced to `make test`, and the clean command to `make clean`
 (Note that I use ghc 7.0.2, you have to compile with `-rtsopts` to enable most runtime flags.)
-{% gist 1378936 Makefile %}
+
+```
+.PHONY: clean test
+
+test: allfirstlines_iteratee allfirstlines_naive gen_nuclear_test
+        bash run_test.sh
+
+allfirstlines_naive: allfirstlines_naive.hs
+        ghc --make -rtsopts -O2 $@
+
+allfirstlines_iteratee: allfirstlines_iteratee.hs
+        ghc --make -rtsopts -O2 $@
+
+gen_nuclear_test: gen_nuclear_test.hs
+        ghc --make -O2 $@
+
+clean:
+        rm -f *.o *.hi
+        rm -rf test01/ test02/ test03/
+```
 
 And my `ulimit -aS` is as follows to see the allowed number of open files for a process.
 ```

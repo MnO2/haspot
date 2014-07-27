@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Haskell Library Survey: Blaze-Builder"
+title: Haskell Library Survey: Blaze-Builder
 date: 2012-03-17 15:55
 comments: true
 categories: haskell 

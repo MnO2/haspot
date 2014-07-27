@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Keeping An Eye Out for the Difference between Machine Word and Fixed Word in Haskell"
+title: Keeping An Eye Out for the Difference between Machine Word and Fixed Word in Haskell
 date: 2012-02-25 17:06
 comments: true
 categories: haskell 
@@ -19,7 +19,19 @@ I summarize them in a list, and attach to it with my own little experiment on th
 Here comes a summation of `10^9` 1 with different word types.
 The experiment is run on ThinkPad X61, Core 2 Duo, 32 bits, with Ubuntu GNU/Linux Natty.
 
-{% gist 1907148 Word.hs %}
+```
+{-# LANGUAGE BangPatterns #-}
+import Data.Word
+import Data.List
+
+sum_word :: Word -> Word
+sum_word n = k n 0
+    where k 0 s = s
+          k !n !s = k (n-1) (s+1)
+
+main = do
+  print $ sum_word 1000000000
+```
 
 ```
 $ ghc -O2 -ddump-simpl Word.hs
@@ -31,7 +43,19 @@ user 0m 6.088s
 sys 0m 0.000s
 ```
 
-{% gist 1907148 Word32.hs %}
+```
+{-# LANGUAGE BangPatterns #-}
+import Data.Word
+import Data.List
+
+sum_word32 :: Word32 -> Word32
+sum_word32 n = k n 0
+    where k 0 s = s
+          k !n !s = k (n-1) (s+1)
+
+main = do
+    print $ sum_word32 1000000000
+```
 
 ```
 $ ghc -O2 -ddump-simpl Word32.hs
@@ -43,7 +67,20 @@ user 0m 6.080s
 sys 0m 0.012s
 ```
 
-{% gist 1907148 Word64.hs %}
+```
+{-# LANGUAGE BangPatterns #-}
+import Data.Word
+import Data.List
+
+sum_word64 :: Word64 -> Word64
+sum_word64 n = k n 0
+    where k 0 s = s
+          k !n !s = k (n-1) (s+1)
+
+main = do
+    print $ sum_word64 1000000000
+```
+
 
 ```
 $ ghc -O2 -ddump-simpl Word64.hs

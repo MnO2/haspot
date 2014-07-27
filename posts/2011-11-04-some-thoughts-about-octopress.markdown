@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Some thoughts about Octopress"
+title: Some thoughts about Octopress
 date: 2011-11-04 04:40
 comments: true
 categories: 

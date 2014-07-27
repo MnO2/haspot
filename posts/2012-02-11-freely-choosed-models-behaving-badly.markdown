@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Freely Choosed Models Behaving Badly"
+title: Freely Choosed Models Behaving Badly
 date: 2012-02-11 00:53
 comments: true
 categories: book-reviews 
@@ -10,7 +10,7 @@ categories: book-reviews
 一本是經典作新自由主義(Neoliberalism)戰神Milton Friedman的Free to choose，
 另一本則是計量金融大老Emanuel Derman的新書Models behaving badly。
 
-{% img /images/2012/02/free_to_choose.jpg 400 'free_to_choose' %}
+![](../images/2012/02/free_to_choose.jpg)
 
 雖身為一個諾貝爾獎得主，Milton Friedman一向擅長用清晰的邏輯跟迅速的反應跟大眾推銷他的信念，
 Free to choose這一本書源自於一系列的關於他的電視訪問，
@@ -53,7 +53,7 @@ Free to choose這一本書源自於一系列的關於他的電視訪問，
 但終究很難講他是一個理論(Theory)，反而應該稱做模型(Model)，
 這就牽扯到我所說的第二本書Models behaving badly。
 
-{% img /images/2012/02/models_behaving_badly.jpg 400 'models_behaving_badly' %}
+![](../images/2012/02/models_behaving_badly.jpg)
 
 Derman身為一個原物理學家，
 對於Theory跟Model的差異有清晰的體悟，

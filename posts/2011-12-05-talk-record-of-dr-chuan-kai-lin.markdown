@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Talk Record of Dr. Chuan-kai Lin"
+title: Talk Record of Dr. Chuan-kai Lin
 date: 2011-12-05 22:35
 comments: true
 categories: 

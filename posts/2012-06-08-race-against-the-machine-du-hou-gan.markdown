@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Race Against The Machine 讀後感"
+title: Race Against The Machine 讀後感
 date: 2012-06-08 22:48
 comments: true
 categories: book-reviews 
 ---
 
-{% img /images/2012/06/race_against_the_machine.jpg 400 'race against the machine' %}
+![](../images/2012/06/race_against_the_machine.jpg)
 
 [Race Against The Machine](http://www.amazon.com/Race-Against-The-Machine-ebook/dp/B005WTR4ZI/ref=cm_cr_pr_product_top)嚴格說來這並不是一本書，
 而是幾個短章節組成的專文，類似一般雜誌中的專題探討之類。

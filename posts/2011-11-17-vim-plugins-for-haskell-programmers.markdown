@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Vim Plugins for Haskell Programmers"
+title: Vim Plugins for Haskell Programmers
 date: 2011-11-17 04:27
 comments: true
 categories: haskell vim 

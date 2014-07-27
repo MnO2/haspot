@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What is Rank-N Types in Haskell"
+title: What is Rank-N Types in Haskell
 date: 2012-04-06 21:41
 comments: true
 categories: haskell 

@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "中東現場與拉丁美洲真相之路"
+title: 中東現場與拉丁美洲真相之路
 date: 2012-04-04 20:35
 comments: true
 categories: book-reviews
 ---
 
 
-{% img /images/2012/04/susanna.jpg 400 'susanna books' %}
+![](../images/2012/04/susanna.jpg)
 
 這是一篇欠了很久的讀書心得。
 拖了很久是因為每每讀完這類開拓視野、發人深省的書便在下筆與反覆咀嚼兩端擺盪。

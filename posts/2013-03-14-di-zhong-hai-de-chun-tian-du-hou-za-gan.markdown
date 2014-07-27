@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-{% img /images/2013/03/mediterranean.jpg 400 'mediterranean sea' %}
+![Mediterranean Sea](../images/2013/03/mediterranean.jpg)
 
 這是第三本看過張翠容寫的書了。一如閱讀前兩本的[感想](http://blog-mno2.csie.org/blog/2012/04/04/zhong-dong-xian-chang-yu-la-ding-mei-zhou-zhen-xiang-zhi-lu/)，非長久浸淫於政治哲學、經濟、人類學、社會學等有思考累積的前提下，要下筆總是猶豫不已。不過同手上仍在閱讀的「我的涼山兄弟」，也陸續讀了不少淺顯型的社會科學或報導型文學的書。雖仍未有政治經濟哲學正規的訓練，我想也算多少長了點眼界，能寫點消化的東西。
 

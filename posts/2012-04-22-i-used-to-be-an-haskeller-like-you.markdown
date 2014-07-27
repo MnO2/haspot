@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "I used to be an Haskeller like you, then I took an Arrow in the knee"
+title: I used to be an Haskeller like you, then I took an Arrow in the knee
 date: 2012-04-22 20:34
 comments: true
 categories: haskell 

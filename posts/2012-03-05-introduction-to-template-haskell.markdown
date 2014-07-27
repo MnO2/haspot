@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to Template Haskell"
+title: Introduction to Template Haskell
 date: 2012-03-05 00:22
 comments: true
 categories: haskell 

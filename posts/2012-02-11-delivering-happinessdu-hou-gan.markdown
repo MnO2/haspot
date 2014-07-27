@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Delivering Happiness讀後感"
+title: Delivering Happiness讀後感
 date: 2012-02-11 00:34
 comments: true
 categories: book-reviews 
 ---
 
-{% img /images/2012/02/delivering_happiness.jpg 400 'delivering_happiness' %}
+![](../images/2012/02/delivering_happiness.jpg)
 
 Delivering Happiness是Zappos CEO Tony Hsieh (謝家華) 半自傳半宣傳Zappos的一本書。
 Tony Hsieh真的可以說是一個傳奇(Legend)，

@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-{% instagram http://instagram.com/p/dbKjVjFvDx/ 612 612 "loss of uncertainty" %}
+![Loss of Uncertainty](http://distilleryimage9.ak.instagram.com/448eb44e0d4711e3920622000ae9085f_7.jpg)
 
 透過 lcamel 的介紹得知了「數學：確定性失落」(Mathematics: The loss of Certainty) 這本書。
 作者 Morris Kline 有感於現今數學學院越來越走向純數研究，漸漸地遺忘數學乃科學之母，而寫的一本回顧數學歷史的書。

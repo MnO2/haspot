@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What are Data.Typeable and Data.Dynamic in Haskell"
+title: What are Data.Typeable and Data.Dynamic in Haskell
 date: 2011-12-24 07:13
 comments: true
 categories: haskell 
@@ -36,7 +36,46 @@ It reminds you either `typeof` in javascript, `typeid` in C++, or `instanceof` i
 Typeable mechanism is kind of like Reflection, using `typeOf (1::Int)` can tell you the type representation (or you can just think of it type) of `(1::Int)`
 There are numerous types in standard library defined as instances of `Typeable`, so I do a little experiment by printing their type represection.
 
-{% gist 1517679 data_typeable.hs %}
+```
+import Data.Int
+import Data.Word
+import Data.Ord
+import Data.Typeable
+import Control.Monad.ST
+import Control.Exception
+import Foreign.C.Types
+
+main = do
+    putStrLn $ show $ typeOf (True::Bool)
+    putStrLn $ show $ typeOf ('c'::Char)
+    putStrLn $ show $ typeOf (1.0::Double)
+    putStrLn $ show $ typeOf (1.0::Float)
+    putStrLn $ show $ typeOf (1::Int)
+    putStrLn $ show $ typeOf (1::Int8)
+    putStrLn $ show $ typeOf (1::Int16)
+    putStrLn $ show $ typeOf (1::Int32)
+    putStrLn $ show $ typeOf (1::Int64)
+    putStrLn $ show $ typeOf (1::Integer)
+    putStrLn $ show $ typeOf (undefined::Ordering)
+    putStrLn $ show $ typeOf (undefined::RealWorld)
+    putStrLn $ show $ typeOf (undefined::Word)
+    putStrLn $ show $ typeOf (undefined::Word8)
+    putStrLn $ show $ typeOf (undefined::Word16)
+    putStrLn $ show $ typeOf (undefined::Word32)
+    putStrLn $ show $ typeOf (undefined::Word64)
+    putStrLn $ show $ typeOf (undefined::())
+    putStrLn $ show $ typeOf (undefined::TyCon)
+    putStrLn $ show $ typeOf (undefined::TypeRep)
+    putStrLn $ show $ typeOf (undefined::ArithException)
+    putStrLn $ show $ typeOf (undefined::ErrorCall)
+    putStrLn $ show $ typeOf (undefined::SomeException)
+    putStrLn $ show $ typeOf (undefined::IOException)
+    putStrLn $ show $ typeOf (undefined::CUIntMax)
+    putStrLn $ show $ typeOf (undefined::CIntMax)
+    putStrLn $ show $ typeOf (undefined::CUIntPtr)
+    putStrLn $ show $ typeOf (undefined::CIntPtr)
+```
+
 
 ```
 Bool
@@ -76,7 +115,46 @@ not just boring identity from `Int` to `Int`, `Char` to `Char`.
 It's first official definition was shown in "scrap your boilerplate."
 Here is the working excerpt of a reference implementation from the paper.
 
-{% gist 1517679 scrap_your_boilerplate.hs %}
+```
+import Unsafe.Coerce
+
+class Typeable a where
+    typeOf :: a -> TypeRep
+
+data TypeRep = TR String [TypeRep] deriving (Eq, Show)
+
+instance Typeable Int where
+    typeOf x = TR "Prelude.Int" []
+
+instance Typeable Bool where
+    typeOf x = TR "Prelude.Bool" []
+
+instance Typeable a => Typeable [a] where
+    typeOf x = TR "Prelude.List" [typeOf (get x)]
+        where
+            get :: [a] -> a
+            get = undefined
+
+instance (Typeable a, Typeable b) => Typeable (a->b) where
+    typeOf f = TR "Prelude.->" [typeOf (getArg f), typeOf (getRes f)]
+        where getArg :: (a->b) -> a
+              getArg = undefined
+              getRes :: (a->b) -> b
+              getRes = undefined
+
+cast :: (Typeable a, Typeable b) => a -> Maybe b
+cast x = r
+    where
+        r = if typeOf x == typeOf (get r)
+                then Just (unsafeCoerce x)
+                else Nothing
+        get :: Maybe a -> a
+        get x = undefined
+
+main = do
+    putStrLn $ show $ typeOf (1::Int)
+```
+
 
 Although the intention to define `Typeable` typeclass in "scrap your boilerplate" is for generic programming,
 it is found useful in defining dynamic type, and that is what `Data.Dynamic` used for.
@@ -100,7 +178,27 @@ You could achieve runtime type safety by inspecting its type tag (with `typeOf` 
 
 An example of this is [Heterogeneous List](http://www.haskell.org/haskellwiki/Heterogenous_collections)
 
-{% gist 1517679 data_dynamic.hs %}
+```
+import Data.Dynamic
+import Data.Maybe
+
+hlist :: [Dynamic]
+hlist = [toDyn "string",
+         toDyn (7::Int),
+         toDyn (pi :: Double),
+         toDyn 'x',
+         toDyn ((), Just "foo")]
+
+dyn :: Dynamic
+dyn = hlist !! 1
+
+v :: Int
+v = case fromDynamic dyn of
+         Nothing -> error "Type mismatch"
+         Just x -> x
+
+main = do putStrLn $ show v
+```
 
 Postscript:
 Haskell 98 limits the typeclass that is auto derivable.
