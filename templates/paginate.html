@@ -30,13 +30,27 @@
         </header>
 
         <main class="content" role="main">
-            <article class="post">
-                $body$
-            </article>
+            $for(posts)$
+                <article class="post">
+                    $body$
+                </article>
+            $endfor$
         </main>
 
         <nav class="pagination" role="navigation">
-        <span class="page-number">Page 1 of 1</span>
+        <nav class="main-nav clearfix">
+            $if(navlinknewer)$
+                <div class="newer-posts">
+                    $navlinknewer$
+                </div>
+            $endif$
+            $if(navlinkolder)$
+                <div class="older-posts">
+                    $navlinkolder$
+                </div>
+            $endif$
+        </nav>
+        <span class="page-number">Page $currIndex$ of $maxIndex$</span>
 
         <footer class="site-footer">
             <a class="subscribe icon-feed" href="/rss/feed.xml"><span class="tooltip">Subscribe!</span></a>

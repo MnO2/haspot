@@ -1,8 +1,8 @@
-$for(posts)$
-    <header class="post-header">
-        <span class="post-meta"><time datetime="$date$">$date$</time> </span>
-        <h2 class="post-title"><a href="$url$">$title$</a></h2>
-    </header>
-    <section class="post-excerpt">
-    </section>
-$endfor$
+<main class="content" role="main">
+    $for(posts)$
+        <h1 class="post-title">$title$</h1>
+        <article>
+            $body$
+        </article>
+    $endfor$
+</main>
