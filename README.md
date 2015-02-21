@@ -1,4 +1,10 @@
-# A static blog generator based on Hakyll and Casper theme
+# Haspot 
+Haspot is a static site generator based on Hakyll, and it ported Ghost’s beautiful Casper theme. Once you install it, it is good to go.
 
-Casper is the default theme of Ghost, released under MIT License
+## Installation 
+```
+cabal sandbox init
+cabal install --only-dependencies
+```
+
 
