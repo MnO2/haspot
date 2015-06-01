@@ -10,6 +10,8 @@
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
+        <meta property="og:title" content="Paul Meng's Blog">
+        <meta property="og:type" content="website">
 
         <link rel="shortcut icon" href="/images/favicon.ico">
         <link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -19,14 +21,29 @@
         <link rel="alternate" type="application/rss+xml" href="/rss/feed.xml">
         <link rel="canonical" href="">
     </head>
-    <body class="home-template">
+    <body class="home-template nav-closed">
+        <div class="nav">
+            <h3 class="nav-title">Menu</h3>
+            <a href="#" class="nav-close">
+                <span class="hidden">Close</span>
+            </a>
+            <ul>
+                    <li class="nav-home nav-current" role="presentation"><a href="/archive.html">Archive</a></li>
+                    <li class="nav-about" role="presentation"><a href="http://paulme.ng">About</a></li>
+                    <li class="nav-fables" role="presentation"><a href="http://blog.mno2.org/slides">Talks</a></li>
+            </ul>
+            <a class="subscribe-button icon-feed" href="/rss/feed.xml">Subscribe</a>
+        </div>
         <header class="site-head" style="background-image: url(/images/borobudur.jpg)">
             <div class="vertical">
                 <div class="site-head-content inner">
                     <h1 class="blog-title">Paul Meng</h1>
-                    <h2 class="blog-description">A Web developer, A Programming Language Theory Lover, A Speech Processing Computer Scientist</h2>
+                    <h2 class="blog-description">A Web developer, A Programming Language Theory Enthusiast, A Speech Processing Computer Scientist</h2>
                 </div>
             </div>
+            <nav class="main-nav overlay clearfix">
+                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+            </nav>
         </header>
 
         <main class="content" role="main">

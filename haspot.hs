@@ -4,13 +4,15 @@ import           Data.Monoid (mappend)
 import           Hakyll
 import           Text.Pandoc
 import qualified Data.Map as M
+import qualified Data.Map.Lazy as ML
 
 import           Control.Monad (zipWithM_)
 import           Data.List (sortBy, intercalate)
 import           Data.Time.Clock (UTCTime)
 import           Data.Time.Format (parseTime)
+import           Data.Maybe (fromJust)
 import           System.FilePath (takeFileName)
-import           System.Locale (defaultTimeLocale)
+import           Data.Time.Format (defaultTimeLocale)
 
 import           Text.Blaze.Html.Renderer.String (renderHtml)
 import           Text.Blaze.Internal (preEscapedString)
@@ -21,7 +23,7 @@ import qualified Text.Blaze.Html5.Attributes as A
 
 --------------------------------------------------------------------------------
 
-hakyllConfig = defaultConfiguration { deployCommand = "cd _deploy && rm -rf * && cp -r ../_site/* . && git add . && $(git diff-index --quiet HEAD || git commit -m `date +%s`) && git push origin master" }
+hakyllConfig = defaultConfiguration { deployCommand = "cd _deploy && rm -rf * && cp -r ../_site/* . ; git add . ; $(git diff-index --quiet HEAD || git commit -m `date +%s`); git push origin master;" }
 
 
 
@@ -46,12 +48,6 @@ main = hakyllWith hakyllConfig $ do
     match "javascript/*" $ do
         route   idRoute
         compile copyFileCompiler
-
-    match (fromList ["about.rst", "contact.markdown"]) $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
 
     match "posts/*" $ do
         route $ setExtension "html"
@@ -89,8 +85,18 @@ main = hakyllWith hakyllConfig $ do
                     >>= loadAndApplyTemplate "templates/paginate.html" postsCtx
                     >>= relativizeUrls
 
-
     match "templates/*" $ compile templateCompiler
+
+
+    create ["archive.html"] $ do
+      route idRoute
+      compile $ do
+        posts <- recentFirst =<< loadAllSnapshots  "posts/*" "teaser"
+        let headingsCtx = listField "posts" postCtx (return posts) `mappend`
+                          defaultContext
+        makeItem ""
+          >>= loadAndApplyTemplate "templates/archive.html" headingsCtx
+          >>= relativizeUrls
 
 
     create ["rss/feed.xml"] $ do

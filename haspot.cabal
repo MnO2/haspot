@@ -17,18 +17,14 @@ extra-source-files:  README.md
 cabal-version:       >=1.10
 
 executable haspot
-  main-is:             Main.hs
-  -- other-modules:       
-  -- other-extensions:    
   build-depends:       base >=4.7 && <4.9,
-                       hakyll >= 4,
+                       hakyll >= 4.6,
                        blaze-html,
                        blaze-markup,
                        time,
                        filepath,
                        old-locale,
-                       pandoc,
+                       pandoc >= 1.14,
                        containers
-  -- hs-source-dirs:      
   main-is:             haspot.hs
   default-language:    Haskell2010
