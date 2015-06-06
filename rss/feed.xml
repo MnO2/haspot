@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Paul Meng</title>
-    <link href="http://blog.mno2.org/rss/feed.xml" rel="self" />
-    <link href="http://blog.mno2.org" />
-    <id>http://blog.mno2.org/rss/feed.xml</id>
+    <title></title>
+    <link href="http://blog.mno2.org/haspot/rss/feed.xml" rel="self" />
+    <link href="http://blog.mno2.org/haspot" />
+    <id>http://blog.mno2.org/haspot/rss/feed.xml</id>
     <author>
         <name>Paul Meng</name>
         <email>mno2@mno2.org</email>
@@ -11,8 +11,8 @@
     <updated>2015-06-06T00:00:00Z</updated>
     <entry>
     <title>Haspot: Haskell 寫的 static blog generator</title>
-    <link href="http://blog.mno2.org/posts/2015-06-06-welcome-to-haspot.html" />
-    <id>http://blog.mno2.org/posts/2015-06-06-welcome-to-haspot.html</id>
+    <link href="http://blog.mno2.org/haspot/posts/2015-06-06-welcome-to-haspot.html" />
+    <id>http://blog.mno2.org/haspot/posts/2015-06-06-welcome-to-haspot.html</id>
     <published>2015-06-06T00:00:00Z</published>
     <updated>2015-06-06T00:00:00Z</updated>
     <summary type="html"><![CDATA[<p><a href="https://github.com/MnO2/haspot">Haspot</a> 是參考了 Octopress 而製成，基於 Hakyll 的 static blog generator。而命名既然 Octopress 致敬了流行的 Wordpress 服務，那用 Haskell 寫的就致敬一下 Blogspot。就像大多數 Haskell 寫的 package 一樣，開頭都會冠上 ha 。所以就成了 haspot。但一個字一個字翻譯的話，可以看作是 haha + spot，也就是「笑」加上「點」。就成了「笑點」，故得到中文譯名。也就是說，如果你的部落格是用「笑點」生成的話，你就可以名正言順地說：「我的部落格有笑點」，或者是「powered by 笑點」。</p>
