@@ -21,10 +21,11 @@ executable haspot
                        hakyll >= 4.6,
                        blaze-html,
                        blaze-markup,
-                       time,
+                       containers,
                        filepath,
                        old-locale,
                        pandoc >= 1.14,
-                       containers
+                       time,
+                       yaml
   main-is:             haspot.hs
   default-language:    Haskell2010

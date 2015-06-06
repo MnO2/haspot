@@ -1,0 +1,10 @@
+author:
+    name: Paul Meng
+    email: mno2@mno2.org
+    intro: A Web developer, A Programming Language Theory Enthusiast, A Speech Processing Computer Scientist.
+blog:
+    root_url: http://blog.mno2.org
+    title: Paul Meng
+    description: A Web developer, A Programming Language Theory Enthusiast, A Speech Processing Computer Scientist.
+    about_page_link: http://paulme.ng
+    banner_image_link: /images/borobudur.jpg
