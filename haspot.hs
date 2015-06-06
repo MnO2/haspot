@@ -24,7 +24,7 @@ import qualified Text.Blaze.Html5.Attributes as A
 
 
 
-hakyllConfig = defaultConfiguration { deployCommand = "bash -c 'cd _deploy && rm -rf * && cp -r ../_site/* . ; git add . ; $(git diff-index --quiet HEAD || git commit -m `date +%s`); $(git push origin master);'" }
+hakyllConfig = defaultConfiguration { deployCommand = "bash -c 'cd _deploy && rm -rf * && cp -r ../_site/* . ; git add . ; $(git diff-index --quiet HEAD || git commit -m `date +%s`); $(git push origin gh-pages);'" }
 
 
 data HaspotSetting = HaspotSetting {
