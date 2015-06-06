@@ -102,13 +102,14 @@ hakyllSetting conf = do
                   let loadTeaser id = loadSnapshot id "teaser"
                                           >>= loadAndApplyTemplate "templates/teaser.html" defaultContext
                                           >>= relativizeUrls
+
                   item1 <- loadTeaser (head itemsForPage)
                   item2 <- loadTeaser (last itemsForPage)
-                  let body1 = itemBody item1
-                      body2 = if length itemsForPage == 1 then "" else itemBody item2
+
+                  let content = if maxIndex == 1 then [item1] else [item1, item2]
                   let postsCtx = if index == 0
                       then
-                          listField "posts" postCtx (return $ [item1, item2]) `mappend`
+                          listField "posts" postCtx (return content) `mappend`
                           field "navlinkolder" (\_ -> return $ indexNavLink index 1 maxIndex) `mappend`
                           field "currIndex" (\_ -> return $ show $ index) `mappend`
                           field "maxIndex" (\_ -> return $ show maxIndex) `mappend`
@@ -117,7 +118,7 @@ hakyllSetting conf = do
                           defaultContext
                       else if index == maxIndex 
                       then
-                          listField "posts" postCtx (return $ [item1, item2]) `mappend`
+                          listField "posts" postCtx (return content) `mappend`
                           field "navlinknewer" (\_ -> return $ indexNavLink index (-1) maxIndex) `mappend`
                           field "currIndex" (\_ -> return $ show $ index) `mappend`
                           field "maxIndex" (\_ -> return $ show maxIndex) `mappend`
@@ -125,7 +126,7 @@ hakyllSetting conf = do
                           (authorCtx conf) `mappend`
                           defaultContext
                       else
-                          listField "posts" postCtx (return $ [item1, item2]) `mappend`
+                          listField "posts" postCtx (return content) `mappend`
                           field "navlinkolder" (\_ -> return $ indexNavLink index 1 maxIndex) `mappend`
                           field "navlinknewer" (\_ -> return $ indexNavLink index (-1) maxIndex) `mappend`
                           field "currIndex" (\_ -> return $ show $ index) `mappend`
