@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Haspot: Haskell 寫的 static blog generator</title>
+
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content>
+        <meta property="og:title" content="Haspot: Haskell 寫的 static blog generator">
+        <meta property="og:type" content="website">
+
+        <link rel="shortcut icon" href="../images/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/screen.css">
+        <link rel="stylesheet" type="text/css" href="../css/fonts.css">
+
+        <link rel="alternate" type="application/rss+xml" href="../rss/feed.xml">
+        <link rel="canonical" href>
+        
+    </head>
+    <body class="post-template">
+        <main class="content" role="main">
+            <article class="post">
+                <header class="post-header">
+                    <a class="blog-logo" href="../">
+                            <span class="blog-title">Paul Meng</span>
+                    </a>
+                </header>
+                    <span class="post-meta"><time datetime="2015-06-06 17:30">2015-06-06 17:30</time> </span>
+
+                    <h1 class="post-title">Haspot: Haskell 寫的 static blog generator</h1>
+
+                    <section class="post-content">
+                        <p><a href="https://github.com/MnO2/haspot">Haspot</a> 是參考了 Octopress 而製成，基於 Hakyll 的 static blog generator。而命名既然 Octopress 致敬了流行的 Wordpress 服務，那用 Haskell 寫的就致敬一下 Blogspot。就像大多數 Haskell 寫的 package 一樣，開頭都會冠上 ha 。所以就成了 haspot。但一個字一個字翻譯的話，可以看作是 haha + spot，也就是「笑」加上「點」。就成了「笑點」，故得到中文譯名。也就是說，如果你的部落格是用「笑點」生成的話，你就可以名正言順地說：「我的部落格有笑點」，或者是「powered by 笑點」。</p>
+<h4 id="如何安裝">如何安裝</h4>
+<p>首先於 <a href="https://github.com/MnO2/haspot">Github repo</a> checkout 出一份 code，並確保你的系統有安裝 GHC &gt;= 7.8 或者 Haskell Platform 2014。</p>
+<ul>
+<li>接著創建一份 Sandbox 來 build haspot</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cabal</span> sandbox init
+<span class="kw">cabal</span> install</code></pre></div>
+<ul>
+<li>然後你可以用 build 或 watch 指令來生成 static bllog</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cabal</span> exec watch</code></pre></div>
+<ul>
+<li>要新增文章的話，就在 posts 資料夾新增一個前綴日期的 markdwon 就可以了。</li>
+</ul>
+
+                    </section>
+
+                    <footer class="post-footer">
+
+                        <section class="author">
+                            <h4>Paul Meng</h4>
+                            <p>A Web developer, A Programming Language Theory Enthusiast, A Speech Processing Computer Scientist.</p>
+                        </section>
+
+                        <section class="share">
+                            <h4>Share this post</h4>
+                            <a class="icon-twitter" href="https://twitter.com/share?text=Haspot: Haskell 寫的 static blog generator&amp;url=/posts/2015-06-06-welcome-to-haspot.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span class="hidden">Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=/posts/2015-06-06-welcome-to-haspot.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span class="hidden">Facebook</span>
+                            </a>
+                            <a class="icon-google-plus" href="https://plus.google.com/share?url=/posts/2015-06-06-welcome-to-haspot.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span class="hidden">Google+</span>
+                            </a>
+                        </section>
+                    </footer>
+            </article>
+        </main>
+
+        <footer class="site-footer">
+            <a class="subscribe icon-feed" href="../rss/feed.xml"><span class="tooltip">Subscribe!</span></a>
+            <div class="inner">
+                 <section class="copyright">All content copyright <a href></a> © 2014 • All rights reserved.</section>
+            </div>
+        </footer>
+        <script src="../javascript/jquery.js"></script>
+        <script src="../javascript/jquery.fitvids.js"></script>
+        <script src="../javascript/index.js"></script>
+    </body>
+</html>
