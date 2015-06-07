@@ -101,7 +101,6 @@ hakyllSetting conf = do
               compile $ do
                   let loadTeaser id = loadSnapshot id "teaser"
                                           >>= loadAndApplyTemplate "templates/teaser.html" defaultContext
-                                          >>= relativizeUrls
 
                   item1 <- loadTeaser (head itemsForPage)
                   item2 <- loadTeaser (last itemsForPage)
