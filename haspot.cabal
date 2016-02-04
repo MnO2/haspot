@@ -10,22 +10,22 @@ license:             MIT
 license-file:        LICENSE
 author:              Paul Meng
 maintainer:          mno2@mno2.org
--- copyright:           
+copyright:           2015 Paul Meng
 -- category:            
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
 
 executable haspot
-  build-depends:       base >=4.7 && <4.9,
-                       hakyll >= 4.6,
-                       blaze-html,
-                       blaze-markup,
-                       containers,
-                       filepath,
-                       old-locale,
-                       pandoc >= 1.14,
-                       time >= 1.5,
-                       yaml
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , blaze-html
+                     , blaze-markup
+                     , containers
+                     , filepath
+                     , hakyll
+                     , pandoc
+                     , time
+                     , yaml
   main-is:             haspot.hs
   default-language:    Haskell2010
