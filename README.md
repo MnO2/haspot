@@ -3,18 +3,16 @@
 Haspot is a static site generator based on Hakyll, and it ported Ghost’s beautiful [Casper](https://github.com/TryGhost/Casper) theme. Once you install it, it is good to go.
 
 
-## Installation 
+## Installation
 
-First you have to install all of the dependencies. Most important one is hakyll.
+First you have to install all of the dependencies. Most important one is hakyll. The most easiest way as the time of Feb 2016 is using `stack`. Make sure you have `stack` installed on your computer.
 
 ``` bash
-cabal sandbox init
-cabal install
-cabal exec watch
+stack build
 ```
 
-## Deployment
+## Build and Launch page
 
 ``` bash
-cabal exec haspot deploy
+stack exec haspot watch
 ```
