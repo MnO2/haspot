@@ -177,9 +177,7 @@ postCtx =
 mathCtx :: Context a
 mathCtx = field "mathjax" $ \item -> do
   metadata <- getMetadata $ itemIdentifier item
-  return $ if "mathjax" `M.member` metadata
-             then "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
-             else ""
+  return "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>"
 
 authorCtx :: HaspotSetting -> Context a
 authorCtx conf = field "author_name" ( \item -> do
