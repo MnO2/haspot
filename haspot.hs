@@ -105,7 +105,7 @@ hakyllSetting conf = do
                   item1 <- loadTeaser (head itemsForPage)
                   item2 <- loadTeaser (last itemsForPage)
 
-                  let content = if maxIndex == 1 then [item1] else [item1, item2]
+                  let content = if length itemsForPage == 1 then [item1] else [item1, item2]
                   let postsCtx = if index == 0
                       then
                           listField "posts" postCtx (return content) `mappend`
