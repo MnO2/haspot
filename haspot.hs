@@ -36,8 +36,7 @@ data HaspotBlogSetting = HaspotBlogSetting {
   title :: String,
   description:: String,
   root_url :: String,
-  about_page_link :: String,
-  banner_image_link :: String
+  about_page_link :: String
 } deriving Generic
 
 data HaspotAuthorSetting = HaspotAuthorSetting {
@@ -201,10 +200,6 @@ blogCtx conf = field "blog_title" ( \item -> do
                  field "about_page_link" ( \item -> do
                       metadata <- getMetadata $ itemIdentifier item
                       return $ about_page_link $ blog conf
-                      ) `mappend`
-                 field "banner_image_link" ( \item -> do
-                      metadata <- getMetadata $ itemIdentifier item
-                      return $ banner_image_link $ blog conf
                       ) `mappend`
                  field "root_url" ( \item -> do
                       metadata <- getMetadata $ itemIdentifier item

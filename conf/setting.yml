@@ -1,10 +1,9 @@
 author:
     name: Paul Meng
-    email: mno2@mno2.org
-    intro: A Web developer, A Programming Language Theory Enthusiast, A Speech Processing Computer Scientist.
+    email: me@paulme.ng 
+    intro: I used be a Haskeller like you, until I have an arrow in my knee. 
 blog:
-    root_url: http://blog.mno2.org/haspot
+    root_url: https://blog.paulme.ng
     title: ""
     description: ""
-    about_page_link: http://paulme.ng
-    banner_image_link: images/haspot.svg
+    about_page_link: https://paulme.ng
