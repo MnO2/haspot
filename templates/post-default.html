@@ -1,74 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
         <title>$title$</title>
+        <link rel="canonical" href="https://paulme.ng" />
+        <link rel="amphtml" href="https://paulme.ng">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="AhCspkSlkxfv5A28XyOOTijnA59_q-V8rJzKakb4CFA" />
 
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta property="og:title" content="$title$">
-        <meta property="og:type" content="website">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      
+        <meta property="og:title" content="Paul Meng" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://paulme.ng" />
+        
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+        <link rel="stylesheet" href="/stylesheets/pure-skin-mine.css">
+        <link rel="stylesheet" href="/stylesheets/customize.css">
 
-        <link rel="shortcut icon" href="/images/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
-        <link rel="stylesheet" type="text/css" href="/css/screen.css">
-        <link rel="stylesheet" type="text/css" href="/css/fonts.css">
-
-        <link rel="alternate" type="application/rss+xml" href="/rss/feed.xml">
-        <link rel="canonical" href="">
-        $mathjax$
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "headline": "Open-source framework for publishing content",
+            "datePublished": "2015-10-07T12:02:41Z",
+            "image": [
+            "logo.jpg"
+            ]
+        }
+        </script>
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     </head>
-    <body class="post-template">
-        <main class="content" role="main">
-            <article class="post">
-                <header class="post-header">
-                    <a class="blog-logo" href="/">
-                            <span class="blog-title">$blog_title$</span>
-                    </a>
-                </header>
-                    <span class="post-meta"><time datetime="$date$">$date$</time> </span>
+    <body>
+        <div class="pure-menu pure-menu-horizontal pure-menu-fixed">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+            </ul>
+        </div>
 
-                    <h1 class="post-title">$title$</h1>
-
-                    <section class="post-content">
-                        $body$
-                    </section>
-
-                    <footer class="post-footer">
-
-                        <section class="author">
-                            <h4>$author_name$</h4>
-                            <p>$author_intro$</p>
-                        </section>
-
-                        <section class="share">
-                            <h4>Share this post</h4>
-                            <a class="icon-twitter" href="https://twitter.com/share?text=$title$&amp;url=$url$" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                                <span class="hidden">Twitter</span>
-                            </a>
-                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=$url$" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                                <span class="hidden">Facebook</span>
-                            </a>
-                            <a class="icon-google-plus" href="https://plus.google.com/share?url=$url$" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                                <span class="hidden">Google+</span>
-                            </a>
-                        </section>
-                    </footer>
-            </article>
-        </main>
-
-        <footer class="site-footer">
-            <a class="subscribe icon-feed" href="/rss/feed.xml"><span class="tooltip">Subscribe!</span></a>
-            <div class="inner">
-                 <section class="copyright">All content copyright <a href=""></a> © 2014 • All rights reserved.</section>
+        <div>
+            <div class="content">
+              <h1 class="post-title is-center">$title$</h1>
+              <div class="pure-g">
+                <div class="pure-u-md-1-5"></div>
+                <div class="pure-u-1 pure-u-md-3-5">
+                  <div class="slot-content">
+                    <article>
+                      $body$
+                    </article>
+                  </div>
+                </div>
+                <div class="pure-u-md-1-5"></div>
+              </div>
             </div>
-        </footer>
-        <script src="/javascript/jquery.js"></script>
-        <script src="/javascript/jquery.fitvids.js"></script>
-        <script src="/javascript/index.js"></script>
+        </div>
     </body>
 </html>

@@ -27,4 +27,3 @@ cabal exec watch
 
 * 要新增文章的話，就在 posts 資料夾新增一個前綴日期的 markdwon 就可以了。
 
-

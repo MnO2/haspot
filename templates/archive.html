@@ -1,66 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
         <title>$title$</title>
+        <link rel="canonical" href="https://paulme.ng" />
+        <link rel="amphtml" href="https://paulme.ng">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="AhCspkSlkxfv5A28XyOOTijnA59_q-V8rJzKakb4CFA" />
 
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      
+        <meta property="og:title" content="Paul Meng" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://paulme.ng" />
+        
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+        <link rel="stylesheet" href="/stylesheets/pure-skin-mine.css">
+        <link rel="stylesheet" href="/stylesheets/customize.css">
 
-        <link rel="shortcut icon" href="/images/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
-        <link rel="stylesheet" type="text/css" href="/css/screen.css">
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
-
-        <link rel="alternate" type="application/rss+xml" href="/rss/feed.xml">
-        <link rel="canonical" href="">
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "headline": "Open-source framework for publishing content",
+            "datePublished": "2015-10-07T12:02:41Z",
+            "image": [
+            "logo.jpg"
+            ]
+        }
+        </script>
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     </head>
     <body class="home-template nav-closed">
-        <div class="nav">
-            <h3 class="nav-title">Menu</h3>
-            <a href="#" class="nav-close">
-                <span class="hidden">Close</span>
-            </a>
-            <ul>
-                    <li class="nav-home nav-current" role="presentation"><a href="/archive.html">Archive</a></li>
-                    <li class="nav-about" role="presentation"><a href="$about_page_link$">About</a></li>
+        <div class="pure-menu pure-menu-horizontal pure-menu-fixed">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="/archive.html" class="pure-menu-link">Archive</a></li>
             </ul>
-            <a class="subscribe-button icon-feed" href="/rss/feed.xml">Subscribe</a>
         </div>
-        <header class="site-head" style="background-image: url($banner_image_link$)">
-            <div class="vertical">
-                <div class="site-head-content inner">
-                    <h1 class="blog-title">$blog_title$</h1>
-                    <h2 class="blog-description">$blog_description$</h2>
-                </div>
-            </div>
-            <nav class="main-nav overlay clearfix">
-                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-            </nav>
-        </header>
-
         <main class="content" role="main">
-            $for(posts)$
-                <article class="post">
-                     <header class="post-header">
-                      <h2 class="post-title"><a href="$url$">$title$</a></h2>
-                    </header>
-                </article>
-            $endfor$
-        </main>
-
-        <footer class="site-footer">
-            <a class="subscribe icon-feed" href="/rss/feed.xml"><span class="tooltip">Subscribe!</span></a>
-            <div class="inner">
-                 <section class="copyright">All content copyright <a href=""></a> © 2014 • All rights reserved.</section>
+          <div class="pure-g">
+            <div class="pure-u-md-1-5"></div>
+            <div class="pure-u-1 pure-u-md-3-5">
+              $for(posts)$
+              <h2 class="post-title"><a href="$url$">$title$</a></h2>
+              $endfor$
             </div>
-        </footer>
-        <script src="/javascript/jquery.js"></script>
-        <script src="/javascript/jquery.fitvids.js"></script>
-        <script src="/javascript/index.js"></script>
+            <div class="pure-u-md-1-5"></div>
+          </div>
+        </main>
     </body>
 </html>

@@ -74,7 +74,7 @@ hakyllSetting conf = do
           route idRoute
           compile copyFileCompiler
 
-      match "css/*" $ do
+      match "stylesheets/*" $ do
           route   idRoute
           compile compressCssCompiler
       
