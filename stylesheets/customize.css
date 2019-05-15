@@ -24,6 +24,40 @@ label {
     color: #34495e;
 }
 
+code, tt {
+    padding: 1px 3px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.85em;
+    white-space: pre-wrap;
+    border: 1px solid #E3EDF3;
+    background: #F7FAFB;
+    border-radius: 2px;
+}
+
+pre {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0;
+    border: 1px solid #E3EDF3;
+    width: 100%;
+    padding: 10px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.9em;
+    white-space: pre;
+    overflow: auto;
+    background: #F7FAFB;
+    border-radius: 3px;
+}
+
+pre code, tt {
+    font-size: inherit;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
