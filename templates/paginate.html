@@ -51,19 +51,26 @@
 
         <div class="pure-g">
           <div class="pure-u-md-1-5"></div>
+          <div class="pure-u-md-3-5">
+          <nav class="main-nav">
+            $if(navlinknewer)$
+            <span class="newer-posts">
+              $navlinknewer$
+            </span>
+            $endif$
+            $if(navlinkolder)$
+            <span class="older-posts" style="float:right">
+              $navlinkolder$
+            </span>
+            $endif$
+          </nav>
+          </div>
+          <div class="pure-u-md-1-5"></div>
+        </div>
+
+        <div class="pure-g">
+          <div class="pure-u-md-1-5"></div>
           <div class="pure-u-1 pure-u-md-3-5">
-            <nav class="main-nav">
-              $if(navlinknewer)$
-              <div class="newer-posts">
-                $navlinknewer$
-              </div>
-              $endif$
-              $if(navlinkolder)$
-              <div class="older-posts">
-                $navlinkolder$
-              </div>
-              $endif$
-            </nav>
             <div class="page-number is-center">Page $currIndex$ of $maxIndex$</div>
             <footer class="site-footer">
               <div class="inner is-center">
