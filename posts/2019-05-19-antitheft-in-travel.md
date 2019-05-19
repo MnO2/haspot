@@ -45,16 +45,16 @@ otherwise the robber might get angry and hurt you.
 
 * Padlock for the backpacks, it would both be useful for your backpack and your hostel. It is more of security theater for your backpack, since the thief could use knife anyway, but this would show you are prepared.
 
-![](images/15560810267496.jpg)
+![](/images/15560810267496.jpg)
 
 * Hidden bag. The one I bought from deuter is a bag wrapping around your leg. Once you wear a pair of pants then it is hard to pickpocket you from the lower part of your body, since they have to bend down to reach it.
 
-![](images/15560810267790.jpg)
+![](/images/15560810267790.jpg)
 
 * The belt that could hold notes. This would be your life saver if you are being robbed. It's unlikely for the robber to find out that you have money in your belt. Even in the security check in the airport, I only run into once that the airport security found that I have notes in the belt. (It's in London, so I know the flight should be safe from London).
 
-![](images/15581858133477.jpg)
+![](/images/15581858133477.jpg)
 
 * Put money into different places, and don't put them in the wallet. I bought a bag of gum and finish it. Then I can put the money in the bag.  
 
-![](images/15582508373828.jpg)
+![](/images/15582508373828.jpg)
