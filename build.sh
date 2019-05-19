@@ -1,4 +1,4 @@
-VERSION=v1.0.12
+VERSION=v1.0.13
 
 docker build -t paulmeng/blog:$VERSION .
 docker push paulmeng/blog:$VERSION
