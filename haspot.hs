@@ -3,6 +3,7 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 import           Text.Pandoc
+import           Text.Pandoc.Options
 import qualified Data.Map as M
 import qualified Data.Map.Lazy as ML
 import           GHC.Generics
@@ -57,6 +58,16 @@ main = do
       Just conf -> hakyllSetting conf
       Nothing -> putStrLn "Configuration Error"
 
+pandocMathCompiler =
+    let defaultExtensions = writerExtensions defaultHakyllWriterOptions
+        newExtensions = enableExtension Ext_tex_math_dollars defaultExtensions 
+        newExtensions' = enableExtension Ext_tex_math_double_backslash defaultExtensions 
+        newExtensions'' = enableExtension Ext_latex_macros defaultExtensions 
+        writerOptions = defaultHakyllWriterOptions {
+                          writerExtensions = newExtensions'',
+                          writerHTMLMathMethod = MathJax ""
+                        }
+    in pandocCompilerWith defaultHakyllReaderOptions writerOptions
 
 hakyllSetting :: HaspotSetting -> IO ()
 hakyllSetting conf = do
@@ -83,7 +94,7 @@ hakyllSetting conf = do
 
       match "posts/*" $ do
           route $ setExtension "html"
-          compile $ pandocCompilerWith defaultHakyllReaderOptions pandocOptions
+          compile $ pandocMathCompiler 
               >>= loadAndApplyTemplate "templates/post.html"    postCtx
               >>= saveSnapshot "teaser"
               >>= loadAndApplyTemplate "templates/post-default.html"  ((blogCtx conf) `mappend` (authorCtx conf) `mappend` mathCtx `mappend` defaultContext)
