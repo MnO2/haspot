@@ -59,6 +59,15 @@ pre code, tt {
     padding: 0;
 }
 
+.post-title {
+    margin: 15;
+}
+
+.post-title a {
+    text-decoration: none;
+    color: #34495e;
+}
+
 .slot-content img {
     display: block;
     max-width: 100%;
