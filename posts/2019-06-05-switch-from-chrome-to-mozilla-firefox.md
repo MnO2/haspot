@@ -5,7 +5,7 @@ date: 2019-06-05 21:17
 comments: true
 categories: 
 ---
-Not only I am leaving Medium, I am also switching my default browser from Chrome to Firefox, due to the concerns that Google is creeping in and intrude the my privacy and trust after reading the news [1](https://news.ycombinator.com/item?id=18052923] and [2](https://news.ycombinator.com/item?id=20044430).
+Not only I am leaving Medium, I am also switching my default browser from Chrome to Firefox, due to the concerns that Google is creeping in and intrude the my privacy and trust after reading the news [1](https://news.ycombinator.com/item?id=18052923) and [2](https://news.ycombinator.com/item?id=20044430).
 
 It's not the first time I tried to switch my main browser to Firefox, the last time I tried was when the first version of [Quantum](https://wiki.mozilla.org/Quantum)'s release. I heard it was shipped with its CSS engine from servo, I couldn't help to download it and try it out. However, it wasn't a successful attempt. There was bugs and issues I run into, apart from that, all of the extensions need to be migrated since the APIs and architectures are totally different. At the time when it was released, there wasn't many good extensions migrated yet. But now most of my commonly used extensions are supported.
 

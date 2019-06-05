@@ -1,4 +1,4 @@
-VERSION=v1.0.27
+VERSION=v1.0.28
 PROGNAME=$(basename $0)
 
 sub_new() {
