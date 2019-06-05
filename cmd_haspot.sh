@@ -6,7 +6,7 @@ sub_new() {
   post_name=$(echo ${title// /-} | tr '[:upper:]' '[:lower:]')
   post_file_name=$(date +%Y-%m-%d)-$post_name
   article_datetime=$(date '+%Y-%m-%d %H:%M')
-  cat <<EOF > posts/$post_file_name
+  cat <<EOF > posts/$post_file_name.md
 ---
 layout: post
 title: "$title"
