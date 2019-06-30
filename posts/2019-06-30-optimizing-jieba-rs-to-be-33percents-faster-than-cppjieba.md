@@ -64,7 +64,7 @@ Now, I'd like move on to the key steps I did to reduce the running time as much 
 
 
 ### Identifying the bottleneck with Instrument
-The first step of performance tuning is to measure it and identifying the critical sections so you could put your efforts at the slowest part. The write-up from [siddontang](https://github.com/siddontang) about [https://www.jianshu.com/p/a80010878def](optimizing TiKV on Mac) is very helpful. By recoding the stack traces of the weicheng binary, it is easy to tell that the program spends its time on two parts: Regex and Viterbi Decoding.
+The first step of performance tuning is to measure it and identifying the critical sections so you could put your efforts at the slowest part. The write-up from [siddontang](https://github.com/siddontang) about [optimizing TiKV on Mac](https://www.jianshu.com/p/a80010878def) is very helpful. By recoding the stack traces of the weicheng binary, it is easy to tell that the program spends its time on two parts: Regex and Viterbi Decoding.
 
 ### Regex
 [BurntSushi](https://github.com/BurntSushi)'s regex library is very performance in general since it's executed in DFA. The [documentation](https://github.com/rust-lang/regex/blob/master/PERFORMANCE.md) also marked it clear where you should be looking at when the performance is the consideration you have. 
