@@ -63,8 +63,9 @@ pandocMathCompiler =
         newExtensions = enableExtension Ext_tex_math_dollars defaultExtensions 
         newExtensions' = enableExtension Ext_tex_math_double_backslash defaultExtensions 
         newExtensions'' = enableExtension Ext_latex_macros defaultExtensions 
+        newExtensions''' = enableExtension Ext_simple_tables defaultExtensions
         writerOptions = defaultHakyllWriterOptions {
-                          writerExtensions = newExtensions'',
+                          writerExtensions = newExtensions''',
                           writerHTMLMathMethod = MathJax ""
                         }
     in pandocCompilerWith defaultHakyllReaderOptions writerOptions

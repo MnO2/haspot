@@ -59,6 +59,49 @@ pre code, tt {
     padding: 0;
 }
 
+table {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0;
+    width:100%;
+    max-width: 100%;
+    background-color: transparent;
+}
+
+table th,
+table td {
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #efefef;
+}
+
+table th { color: #000; }
+
+table caption + thead tr:first-child th,
+table caption + thead tr:first-child td,
+table colgroup + thead tr:first-child th,
+table colgroup + thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+    border-top: 0;
+}
+
+table tbody + tbody { border-top: 2px solid #efefef; }
+
+table table table { background-color: #fff; }
+
+table tbody > tr:nth-child(odd) > td,
+table tbody > tr:nth-child(odd) > th {
+    background-color: #f6f6f6;
+}
+
+table.plain tbody > tr:nth-child(odd) > td,
+table.plain tbody > tr:nth-child(odd) > th {
+   background: transparent;
+}
+
 .post-title {
     margin: 15;
 }
