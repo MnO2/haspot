@@ -104,6 +104,7 @@ table.plain tbody > tr:nth-child(odd) > th {
 
 .post-title {
     margin: 15;
+    line-height: 1.7em;
 }
 
 .post-title a {

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "优化jieba-rs中文分词性能评测(快于cppjieba 33%)"
+title: "优化 jieba-rs 中文分词性能评测 (快于 cppjieba 33%)"
 date: 2019-07-01 14:10 
 comments: true
 categories: 

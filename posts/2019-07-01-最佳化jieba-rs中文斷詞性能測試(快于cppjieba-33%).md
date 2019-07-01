@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "最佳化jieba-rs斷詞性能測試(快于cppjieba 33%)"
+title: "最佳化 jieba-rs 中文斷詞性能測試 (快于 cppjieba 33%)"
 date: 2019-07-01 15:36 
 comments: true
 categories: 
