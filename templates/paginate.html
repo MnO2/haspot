@@ -1,20 +1,14 @@
 <!doctype html>
 <html>
     <head>
-        <script>
-          (function(f, a, t, h, o, m){
-            a[h]=a[h]||function(){
-              (a[h].q=a[h].q||[]).push(arguments)
-            };
-            o=f.createElement('script'),
-              m=f.getElementsByTagName('script')[0];
-            o.async=1; o.src=t; o.id='fathom-script';
-            m.parentNode.insertBefore(o,m)
-          })(document, window, '//analytics.paulme.ng/tracker.js', 'fathom');
-          fathom('set', 'siteId', 'JJSPU');
-          fathom('trackPageview');
-        </script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140890995-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
 
+	  gtag('config', 'UA-140890995-1');
+	</script>
         <meta charset="utf-8">
         <script async src="https://cdn.ampproject.org/v0.js"></script>
         <title>$blog_title$</title>
