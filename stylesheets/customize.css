@@ -12,7 +12,7 @@ body {
     line-height: 1.7em;
     color: block;
     font-size: 13px;
-    font-family: 'Noto Sans', 'Noto Serif', serif;
+    font-family: serif;
 }
 
 h1,
@@ -378,25 +378,4 @@ a.pure-button-primary {
     .splash-head {
         font-size: 300%;
     }
-}
-
-@font-face {
-  font-family: 'Noto Serif';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Noto Serif'), local('NotoSerif'), url(http://themes.googleusercontent.com/static/fonts/notoserif/v2/eCpfeMZI7q4jLksXVRWPQ73hpw3pgy2gAi-Ip7WPMi0.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Noto Serif';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Noto Serif Bold'), local('NotoSerif-Bold'), url(http://themes.googleusercontent.com/static/fonts/notoserif/v2/lJAvZoKA5NttpPc9yc6lPXbFhgvWbfSbdVg11QabG8w.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'Noto Serif';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Noto Serif Italic'), local('NotoSerif-Italic'), url(http://themes.googleusercontent.com/static/fonts/notoserif/v2/HQXBIwLHsOJCNEQeX9kNz6RDOzjiPcYnFooOUGCOsRk.woff) format('woff');
 }
