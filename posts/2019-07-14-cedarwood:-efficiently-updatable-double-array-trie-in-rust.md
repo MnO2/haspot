@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-In an effort to [speed up jieba-rs](https://blog.paulme.ng/posts/2019-06-30-optimizing-jieba-rs-to-be-33percents-faster-than-cppjieba.html), an efficient implementation of trie is needed in order to satisfying the following needs.
+[Cedarwood](https://github.com/MnO2/cedarwood) is an effort to [speed up jieba-rs](https://blog.paulme.ng/posts/2019-06-30-optimizing-jieba-rs-to-be-33percents-faster-than-cppjieba.html), an efficient implementation of trie is needed in order to satisfying the following needs.
 
 * To be able to list the prefixes that exist in the dictionary with a given string. For example, given the dictionary to be `["a", "ab", "abc", "z", "xz", "xy"]` and the input string `abcdefg`. We should be able to efficiently list the prefixes `["a", "ab", "abc"]` that exist in the dictionary.
 * Due to the support of dictionary provided dynamically from the user, we need to support dynamic insertion into the data structure and at the same time still get us efficient common prefixes operation.
