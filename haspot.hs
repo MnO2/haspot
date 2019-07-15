@@ -23,10 +23,7 @@ import           Text.Blaze.Html ((!), toHtml, toValue)
 import qualified Text.Blaze.Html5 as H
 import qualified Text.Blaze.Html5.Attributes as A
 
-
-
-hakyllConfig = defaultConfiguration { deployCommand = "bash -c 'cd _deploy && rm -rf * && cp -r ../_site/* . ; git add . ; $(git diff-index --quiet HEAD || git commit -m `date +%s`); $(git push origin gh-pages);'" }
-
+hakyllConfig = defaultConfiguration 
 
 data HaspotSetting = HaspotSetting {
   blog :: HaspotBlogSetting,
