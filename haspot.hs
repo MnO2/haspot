@@ -34,6 +34,7 @@ data HaspotBlogSetting = HaspotBlogSetting {
   title :: String,
   description:: String,
   root_url :: String,
+  google_analytics_id :: String,
   about_page_link :: String
 } deriving Generic
 
@@ -209,6 +210,10 @@ blogCtx conf = field "blog_title" ( \item -> do
                  field "root_url" ( \item -> do
                       metadata <- getMetadata $ itemIdentifier item
                       return $ root_url $ blog conf
+                      ) `mappend`
+                 field "blog_google_analytics_id" ( \item -> do
+                      metadata <- getMetadata $ itemIdentifier item
+                      return $ google_analytics_id $ blog conf
                       )
 
 
