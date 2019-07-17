@@ -35,7 +35,7 @@ Haskell.SGの参加者が増える一方なので、時々に Meetup.com のイ�
 
 ゲームライブsトリーミングついて、通常使うのソフトウエアはOpen Broadcaster SoftwareとXSplitです。XSplit が費用がかかりといっも、OBS より安定してはない。OBS を勧めます。
 
-![](https://cdn-images-1.medium.com/max/2400/0*qLF5_FqEYiaBhKw_.jpg<Paste>)
+![](https://cdn-images-1.medium.com/max/2400/0*qLF5_FqEYiaBhKw_.jpg)
 
 OBS では、複数の画面をミックスして、Scene を作ります。Scene はスピーカーの画面とデジタルカメラ録画含みます。一つ画面は別の画面を重なり合います。オーディオも加えられます。パネルで AT2020 からの信号をえらぶなら、Scene がオーディオを含みます。
 

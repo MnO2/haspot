@@ -183,7 +183,7 @@ for debugging the solver. Pretty neat.
     $T4:
         Constraints:
           $T3 conv $T4 [[locator@0x7ffcc4967b80 [Binary@<REPL Input>:1:11]]];
-        Adjacencies: $T3<Paste>
+        Adjacencies: $T3
 ```
 
 The above is the progess so far. I also found that Swift compiler is actually a

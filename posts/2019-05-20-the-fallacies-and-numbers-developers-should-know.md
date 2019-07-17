@@ -34,4 +34,4 @@ One thing the awesome-falsehood did well is by collecting a list of blog posts t
 * [Explanation of the critics on falsehood to Time](https://gist.github.com/thanatos/eee17100476a336a711e)
 
 Also, Apple's document on NSCalendar also has some golds in it.
-* [NSCalendar document](https://developer.apple.com/documentation/foundation/nscalendar)<Paste>
+* [NSCalendar document](https://developer.apple.com/documentation/foundation/nscalendar)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What are my anti-theft measures while I was traveling<Paste>"
+title: "What are my anti-theft measures while I was traveling"
 date: 2019-05-19 20:30
 comments: true
 categories: 
