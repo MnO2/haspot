@@ -86,6 +86,10 @@ hakyllSetting conf = do
       match "javascript/*" $ do
           route   idRoute
           compile copyFileCompiler
+      
+      match "about/*" $ do
+          route   idRoute
+          compile copyFileCompiler
 
       match "posts/*" $ do
           route $ setExtension "html"

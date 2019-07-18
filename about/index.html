@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Paul Meng</title>
+        <link rel="canonical" href="https://paulme.ng" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="AhCspkSlkxfv5A28XyOOTijnA59_q-V8rJzKakb4CFA" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      
+        <meta property="og:title" content="Paul Meng" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://paulme.ng" />
+        
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+        <link rel="stylesheet" href="./stylesheets/pure-skin-mine.css">
+        <link rel="stylesheet" href="./stylesheets/customize.css">
+    </head>
+    <body>
+        <div class="pure-menu pure-menu-horizontal">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="../" class="pure-menu-link">Blog</a></li>
+                <li class="pure-menu-item"><a href="https://github.com/MnO2" class="pure-menu-link">Github</a></li>
+                <li class="pure-menu-item"><a href="https://sg.linkedin.com/in/paul-meng-89209111" class="pure-menu-link">Linkedin</a></li>
+            </ul>
+        </div>
+
+        <div id="skrollr-body">
+            <div id="about-me" class="content">
+	        <h2 class="content-head is-center">About Me</h2>
+                <div class="pure-g">
+                    <div class="pure-u-md-1-5"></div>
+                    <div class="pure-u-1 pure-u-md-3-5">
+                        <div class="slot-content">
+                            <li>I work on things that interests me. In the past
+                              they were speech recognition, recommender system,
+                              large scale distributed system. Now I spend my
+                              time on infra and system level including eBPF,
+                              containers orchestration but not limited to that.
+                              I am also interested into projects in either Rust or Haskell</li>
+                            <li>I am available for hiring at this moment. I had been working for <a href="http://www.grab.com/sg/">Grab</a> since 2015</li>
+                            <li>My email address is "bWVAcGF1bG1lLm5nCg==", base64 encoded</li>
+                            <li>If you would like to send encrypted message to
+                              me, my gpg key id is 4224C33D012FCD22 on
+                              keyserver.ubuntu.com</li>
+                        </div>
+                    </div>
+                    <div class="pure-u-md-1-5"></div>
+                </div>
+            </div>
+
+            <div id="portfolio" class="content">
+	        <h2 class="content-head is-center">Open Source Projects</h2>
+                <div class="pure-g">
+                    <div class="pure-u-md-1-5"></div>
+                    <div class="pure-u-1 pure-u-md-3-5">
+                        <div class="slot-content">
+                            <a href="https://github.com/MnO2/calljj"><h3 class="content-subhead">calljj</h3></a>
+                            <p>An esoteric language running with SECD machine.  The name was based on a pun of a popular Taiwanese music MV and lisp's callcc.
+                            It is bascially <a
+                              href="http://www.blue.sky.or.jp/grass/">Grass
+                              language</a> with different symbols in use. It's
+                            implemented in Haskell</p>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-u-md-1-5"></div>
+                </div>
+                <div class="pure-g">
+                    <div class="pure-u-md-1-5"></div>
+                    <div class="pure-u-1 pure-u-md-3-5">
+                        <div class="slot-content">
+                            <a href="https://github.com/BrandKarma/elasticsearch_dsl"><h3 class="content-subhead">elasticsearch_dsl</h3></a>
+                            <p>Domain specific language for elasticsearch in python. An emerging trend in recent year for software, including mongodb, elasticsearch and Chef, is to expose an JSON interface to accept complex requests. They give up the traditional SQL query and adopt JSON as the text encoding of abstract syntax tree. Therefore, whenever you are making up a request to these services, you are actually hand coding an abstract syntax tree in JSON. Although it is flexible and easy to extend, it is also error prone and hard to maintain. A common solution for this is to write a Domain Specific Language. And with python’s language design, a naive and natural solution is to use Class to denote AST node and Visitor pattern to code-generate the underlying JSON.</p>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-u-md-1-5"></div>
+                </div>
+
+                <div class="pure-g">
+                    <div class="pure-u-md-1-5"></div>
+                    <div class="pure-u-1 pure-u-md-3-5">
+                        <div class="slot-content">
+                            <a href="https://github.com/BrandKarma/solrdump"><h3 class="content-subhead">solrdump</h3></a>
+
+                            <p>A Clojure library designed to read raw index from Solr. Both of Solr and Elasticsearch are built on Lucene. However, when you would like to migrate from one of the technology to the other. There isn’t any tool help you do so. Nwer version of Solr has dump handler built-in, but it is just for exporting raw Lucene index and it is not in JSON format. You could use install the Lucence jar and manipulate the raw index with Java API. An naive way is to write Java, but to enjoy the feeling of dipping into new technology. We decided to write it in Clojure. The dump format would be JSON.</p>
+                        </div>
+                    </div>
+                    <div class="pure-u-md-1-5"></div>
+                </div>
+
+                <div class="pure-g">
+                    <div class="pure-u-md-1-5"></div>
+                    <div class="pure-u-1 pure-u-md-3-5">
+                        <div class="slot-content">
+                            <a href="https://github.com/MnO2/hopencc"><h3 class="content-subhead">hopencc</h3></a>
+
+                            <p>Haskell binding for libopencc. libopencc is a library to translate between
+                            traditional Chinese and simplified Chinese. The
+                            discrepency in terminology between tranditional Chinese and
+                            simplified Chinese could not be solved by a simple
+                            mapping table, therefore the library.</p>
+                        </div>
+                    </div>
+                    <div class="pure-u-md-1-5"></div>
+                </div>
+            </div> <!-- end content -->
+        
+            <div id="publication" class="content">
+	        <h2 class="content-head is-center">Talks</h2>
+                <div class="pure-g">
+                    <div class="pure-u-md-1-5"></div>
+                    <div class="pure-u-1 pure-u-md-3-5">
+                        <div class="slot-content">
+				<ul>
+					<li><a href="http://mno2.github.io/slides/derived/atom-plugin-in-haskell.html">Atom plugin in Haskell</a></li>
+					<li><a href="http://mno2.github.io/slides/derived/neovim-plugin-in-haskell.html">Neovim plugin in Haskell</a></li>
+					<li><a href="http://mno2.github.io/slides/derived/free-monad-refactoring.html">Refactoring with Free Monad</a></li>
+					<li><a href="http://mno2.github.io/slides/derived/free-monad-refactoring.html">Introduction to Hindley Milner Type Inference</a></li>
+				</ul>
+                        </div>
+                    </div>
+                    <div class="pure-u-md-1-5"></div>
+                </div>
+            </div>
+
+            <div id="publication" class="content">
+	        <h2 class="content-head is-center">Books</h4>
+                <div class="pure-g">
+                    <div class="pure-u-md-1-5"></div>
+                    <div class="pure-u-1 pure-u-md-3-5">
+                        <div class="slot-content">
+                            <a href="http://learnyouahaskell-zh-tw.csie.org/"><h4 class="content-subhead">Learn you a Haskell for Great Good Chinese Edition</h4></a>
+
+                            <p>The Haskell learning resource in Chinese is very few as the time of 2011. As one of the initiators of #haskell.tw channel on freenode. I took over the unfinished first eight chapters translation from Fleuria, and continued to translate the last six chapters. The translation is licensed by CC-BY-SA-NC. The work has been viewed by thousands of people.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-u-md-1-5"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+        </div>
+    </body>
+</html>
