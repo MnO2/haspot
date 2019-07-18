@@ -87,7 +87,7 @@ hakyllSetting conf = do
           route   idRoute
           compile copyFileCompiler
       
-      match "about/*" $ do
+      match "about/**" $ do
           route   idRoute
           compile copyFileCompiler
 
