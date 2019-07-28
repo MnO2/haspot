@@ -55,6 +55,12 @@ otherwise the robber might get angry and hurt you.
 
 ![](/images/15581858133477.jpg)
 
-* Put money into different places, and don't put them in the wallet. I bought a bag of gum and finish it. Then I can put the money in the bag.  
-
+* Put money into different places, and don't put them in the wallet. I bought a bag of gum and finish it. Then I can put the money in the bag. For places that with high robbery rate, you could put money in a honey pot wallet just in case somebody robs you with a gun and it would be better to give them a small amount than being shot.
 ![](/images/15582508373828.jpg)
+
+
+* Sandbox bank account and bank card with very few money inside. This is also for robbery, but a bonus is to prevent ATM card recording.
+
+* Spare Mobile phone, so that you could still be able to access to Internet when one of your phone being stolen.
+
+* Check with your bank beforehand about the procedure to cease the credit card, especially when you are oversea.
