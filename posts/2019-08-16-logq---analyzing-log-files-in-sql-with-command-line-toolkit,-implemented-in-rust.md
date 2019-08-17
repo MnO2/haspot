@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-[logq](https://github.com/MnO2/logq) is my latest project and it has reached to a reasonably qualitative milestone for me to be comfortable enough to introduce it and share about its technical detail.
+[logq](https://github.com/MnO2/logq) is my latest project and it has reached a reasonably qualitative milestone for me to comfortably introduce it and share about its technical detail.
 
 Let’s start by an example. Imagine that you are in the middle of troubleshooting a production incident and you are suspecting a certain endpoint from the web-server is having problem and result into high latency. Since it is application level and it is not provided by the AWS CloudWatch. It is also the first time that it happened so there isn't any in-house datadog or application level instarumentation setup. And it occurs to you that the access log contains the relevant information and it would be possible for you to calculate the metrics from the log. You download the log from the archive storage and piece together an ad-hoc script in 30 minutes and run the metrics against the log, and the script is implemented in python it gets to pretty slow if the log size is large. Wouldn't it be great if there were command line where you could handle these kind of ad-hoc analysis situation easily? Where no extra dependency setup like ELK or library is needed. That is the motivation to drive to the development of [logq](https://github.com/MnO2/logq), where you could answer the question of "What are the 95th latencies with 5 seconds time frame against application handlers by ignoring the second path segments" easily.
 
@@ -46,6 +46,7 @@ When I was evaluating the parsing approach, I was considering among [nom](https:
 ### Parsing identifier
 
 It wasn't so clear on how to express the rules of a valid identifier 
+
 1. It consists of underscore, alphabet, digit
 2. It should not start with number
 3. It shouldn't be all underscore
