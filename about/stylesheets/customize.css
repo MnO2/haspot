@@ -30,7 +30,7 @@ code, tt {
     padding: 1px 3px;
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
-    white-space: pre-wrap;
+    white-space: pre;
     border: 1px solid #E3EDF3;
     background: #F7FAFB;
     border-radius: 2px;
@@ -53,8 +53,8 @@ pre {
 
 pre code, tt {
     font-size: inherit;
-    white-space: -moz-pre-wrap;
-    white-space: pre-wrap;
+    white-space: -moz-pre;
+    white-space: pre;
     background: transparent;
     border: none;
     padding: 0;
@@ -142,7 +142,7 @@ table.plain tbody > tr:nth-child(odd) > th {
 
 @media (min-width: 1281px) {
     body {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
         color: rgba(0, 0, 0, 0.9);
         font-style: normal;
@@ -157,7 +157,7 @@ table.plain tbody > tr:nth-child(odd) > th {
 
 @media (min-width: 1025px) and (max-width: 1280px) {
     body {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
         color: rgba(0, 0, 0, 0.9);
         font-style: normal;
@@ -172,7 +172,7 @@ table.plain tbody > tr:nth-child(odd) > th {
 
 @media (min-width: 768px) and (max-width: 1024px) {
     body {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
         color: rgba(0, 0, 0, 0.9);
         font-style: normal;
@@ -187,7 +187,7 @@ table.plain tbody > tr:nth-child(odd) > th {
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     body {
-        font-size: 2rem;
+        font-size: 1.2rem;
         font-weight: 400;
         color: rgba(0, 0, 0, 0.9);
         font-style: normal;
@@ -202,7 +202,7 @@ table.plain tbody > tr:nth-child(odd) > th {
 
 @media (min-width: 481px) and (max-width: 767px) {
     body {
-        font-size: 2rem;
+        font-size: 1.2rem;
         font-weight: 400;
         color: rgba(0, 0, 0, 0.9);
         font-style: normal;
