@@ -20,7 +20,8 @@ EOF
 sub_help() {
   echo "Usage: $PROGNAME <subcommand> [options]\n"
   echo "    new     -- generate new blog post"
-  echo "    deploy  -- build a docker image and upload"
+  echo "    deploy  -- push it to github"
+  echo "    docker  -- build a docker image and upload"
   echo ""
   echo "For help with each subcommand run:"
   echo "$PROGNAME <subcommand> -h|--help"
@@ -28,6 +29,21 @@ sub_help() {
 }
 
 sub_deploy() {
+  TARGET_DIR=$(grealpath ../mno2.github.io)
+  TIMESTAMP=$(date +%s)
+
+  NEW_FILENAME=customize-$TIMESTAMP.css
+  stack run rebuild
+  cp -r _site/** $TARGET_DIR 
+  cd $TARGET_DIR
+  find . -name "*.html" -exec sed -i '' s/customize.css/$NEW_FILENAME/g {} +
+  mv about/stylesheets/customize.css about/stylesheets/$NEW_FILENAME
+  mv stylesheets/customize.css stylesheets/$NEW_FILENAME
+  git commit -m "New post"
+  git push origin master
+}
+
+sub_docker() {
   if ! [ -x "$(command -v docker)" ]; then
     echo 'Error: docker is not installed.' >&2
     exit 1
