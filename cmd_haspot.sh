@@ -39,6 +39,7 @@ sub_deploy() {
   find . -name "*.html" -exec sed -i '' s/customize.css/$NEW_FILENAME/g {} +
   mv about/stylesheets/customize.css about/stylesheets/$NEW_FILENAME
   mv stylesheets/customize.css stylesheets/$NEW_FILENAME
+  git add .
   git commit -m "New post"
   git push origin master
 }
