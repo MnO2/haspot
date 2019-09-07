@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-[](https://cdn-images-1.medium.com/max/2400/0*RBEAA7_yV3Er7IVA.jpg)
+![](/images/legacy/0*RBEAA7_yV3Er7IVA.jpg)
 
 這是第三本看過張翠容寫的書了。一如閱讀前兩本的感想，非長久浸淫於政治哲學、經濟、人類學、社會學等有思考累積的前提下，要下筆總是猶豫不已。不過同手上仍在閱讀的「我的涼山兄弟」，也陸續讀了不少淺顯型的社會科學或報導型文學的書。雖仍未有政治經濟哲學正規的訓練，我想也算多少長了點眼界，能寫點消化的東西。
 

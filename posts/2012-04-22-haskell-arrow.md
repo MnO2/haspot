@@ -26,7 +26,7 @@ In general, the structure that is not sequental, but is much like electronic cir
 ### Typeclassopedia
 Let’s see a diagram from Typeclassopedia by Brent Yorgey.
 
-![](https://cdn-images-1.medium.com/max/1600/0*EAp1EQzHN6cvH0px.png)
+![](/images/legacy/0*EAp1EQzHN6cvH0px.png)
 
 This diagram tells us the relationship between Monads and Arrows. Unlike Functor and Applicative, they are basically different things and from different lineage.
 
@@ -55,11 +55,11 @@ There are five methods here, but actually you only have to define arr and first.
 
 To see how these five composing methods work, let’s try out an easy example. That is to model an OR gate with NAND gates.
 
-![](https://cdn-images-1.medium.com/max/1600/0*6ek_K8IaTNu-E0J0.png)
+![](/images/legacy/0*6ek_K8IaTNu-E0J0.png)
 
 We can duplicate the input to the first level NAND gates with id and &&&, and to combine the results of first level NAND gates, we can use *** operator. In chart it looks like this.
 
-![](https://cdn-images-1.medium.com/max/1600/0*1DCS_3OU5QVKmo-O.png)
+![](/images/legacy/0*1DCS_3OU5QVKmo-O.png)
 
 To implements it in haskell we also need to define the circuit element as instances of Category and Arrow, we call it Auto.
 
@@ -136,7 +136,7 @@ The pattern is keyword proc followed with the input symbols, then -> do. We desc
 ### A More Complicated Example
 Already know how to simulate OR with NAND, let’s implement a hald-adder.
 
-![](https://cdn-images-1.medium.com/max/1600/0*MIcgossP8D0G67Vu.png)
+![](/images/legacy/0*MIcgossP8D0G67Vu.png)
 
 With the help of Arrow Notation, all we need to do is to define the instances, and drawing circuits with <- and -< symbols in the program.
 

@@ -5,7 +5,7 @@ date: 2016-04-08 17:30
 comments: true
 categories: 
 ---
-![](https://cdn-images-1.medium.com/max/2400/1*E3O_pk89r4LK216loMPWOw.png)
+![](/images/legacy/1*E3O_pk89r4LK216loMPWOw.png)
 
 Tampermonkeyは,Firefoxの有名な拡張機能Greasemonkeyとほぼ互換の拡張機能である。インストールすれば、ユーザースクリプトの機能を利用できます。それは、JavascriptでHTML文書のDOMを操作して、ウエブペイジの内容を書き換えることができる。プラグインも同じのことを遂げられたけど、プラグインより、ユーザースクリプトがリソースを少し利用して、軽量化です。それに、ユーザースクリプトが指定のdomainをロードされだから、とっても軽量して、大量のインストールも問題ではありません。
 

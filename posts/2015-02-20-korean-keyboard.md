@@ -11,7 +11,7 @@ Another thing is typing alphabet out on the computer. Korean has different keybo
 
 You could set the keyboard layout in Mac’s Settings -> Keyboard -> Input Method -> Korean -> HNC Romaja
 
-![](https://cdn-images-1.medium.com/max/1600/0*E8N_vIczJHa09YUf.jpg)
+![](/images/legacy/0*E8N_vIczJHa09YUf.jpg)
 
 Here is a few examples with han-gul and its typing sequence.
 

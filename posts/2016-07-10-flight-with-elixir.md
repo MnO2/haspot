@@ -7,7 +7,7 @@ categories:
 ---
 ### Flight with Elixir
 
-![](https://cdn-images-1.medium.com/max/2400/1*IZxHEx_bVFJu1F2pQFPZVg.png)
+![](/images/legacy/1*IZxHEx_bVFJu1F2pQFPZVg.png)
 
 I kept hearing people saying good comments about Elixir and its most popular web
 framework: Phoenix, from last year. People pitched the language with the Ruby

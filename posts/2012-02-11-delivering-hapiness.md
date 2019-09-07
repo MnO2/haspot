@@ -5,7 +5,7 @@ date: 2012-02-11 17:30
 comments: true
 categories: 
 ---
-![](https://cdn-images-1.medium.com/max/2400/0*hSmbN_4nlvPpgrvy.jpg)
+![](/images/legacy/0*hSmbN_4nlvPpgrvy.jpg)
 
 Delivering Happiness是Zappos CEO Tony Hsieh (謝家華) 半自傳半宣傳Zappos的一本書。 Tony Hsieh真的可以說是一個傳奇(Legend)， 字裡行間都可以看出一個他不但是聰明有生意頭腦而且是很有智慧的人。 在上國中的時候就開始自己做起郵購的生意(我國中的時候在幹嘛?)， 在哈佛的時候還跑去頂了宿舍的餐飲店賣起Pizza， 我很懷疑他怎麼會有時間去練ACM ICPC而且還拿到1993 World Final Championship。 雖說那時候競爭強度不像現在這麼變態， 看了一下那時候的Final Standing，好歹也是有全美+加拿大。
 

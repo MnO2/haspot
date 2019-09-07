@@ -14,15 +14,15 @@ Haskell has a powerful type system. In Haskell 98 it can already describe a lot 
 ### How to Model a Web App with Monad and Lens
 When writing in haskell, it is very important to think from the aspect of types, and the relationship between them. It’s like composing electronic circuits or playing with LEGO. To model an executing web app, you can squeeze your eyes a little bit, and you can see it look like this:
 
-![](https://cdn-images-1.medium.com/max/1600/0*AEz8hJnHwaf0Hw6q.png)
+![](/images/legacy/0*AEz8hJnHwaf0Hw6q.png)
 
 Here we call a web app as a service. To run it, usually it at least consists of Config and State. However, if we want to modify state in haskell, we need the help of setter and getter, which together means Lens.
 
-![](https://cdn-images-1.medium.com/max/1600/0*RpZ2WT8GFJZkUDQW.png)
+![](/images/legacy/0*RpZ2WT8GFJZkUDQW.png)
 
 For a real world web app, one service is far from enough. Also, categorizing the whole web app’s state into one service is not considered type safe. To accommodate this problem, snap framework consider a web app as a tree of services. For example, your web app may need to communicate with database service and OAuth service and template rendering service to serve a http request. And we also want to have some kind of permission control between the services. After all, you wouldn’t like your template rendering service mess up with the state of OAuth service. Hence, snap framework also take a chroot like permission control into account, and incorporate it into type system.
 
-![](https://cdn-images-1.medium.com/max/1600/0*P0Yl9ztxv4Msrq5m.png)
+![](/images/legacy/0*P0Yl9ztxv4Msrq5m.png)
 
 How the type is expressed in snap framework? Given a service with state v runs in a Reader plus State Monad Stack and outputs a value in the end, another b state is added to the type to denote the base state. It could be writing like m b v a. Base state is like global variable shared by several services. Or take file system as an analogy. Base state is any data on the path of current directory up to the root. Say we are in “/abc/def/ghi”, then this service can get and set any data in “/abc/“ and “/abc/def/“ and “/abc/def/ghi/…” . Setting base state is as to chroot to different directories. If we set base state to equal to v, then we are chrooting to “/ghi/”.
 

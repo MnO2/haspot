@@ -6,7 +6,7 @@ comments: true
 categories: 
 ---
 
-![](https://cdn-images-1.medium.com/max/2400/0*USBbtN5FC1-hK4fE.jpg)
+![](/images/legacy/0*USBbtN5FC1-hK4fE.jpg)
 
 Race Against The Machine嚴格說來這並不是一本書， 而是幾個短章節組成的專文，類似一般雜誌中的專題探討之類。 我是看到Tim O'Reilly大叔在Google+上看到他簡短的推薦， 加上本身就有類似的想法決定看看是否有先進將我零碎的想法已經研究得透徹。
 

@@ -27,7 +27,7 @@ could rely on Docker on Windows but that requires Professional version and
 Hypervisor and I don’t want to pay for that. Installing a Linux server on
 Virtualbox is more cost effective just for development.
 
-![](https://cdn-images-1.medium.com/max/2600/1*OHQiPTLPKvZCyjRvCLEO3w.png)
+![](/images/legacy/1*OHQiPTLPKvZCyjRvCLEO3w.png)
 
 For a long period of time, the downside of Windows system is the lack of package
 managers, where you could skip the process of going to the website and download
@@ -36,7 +36,7 @@ programs as you do on Linux distributions now. Hit the Powershell in
 Administrator mode and type choco install with package name, everything would be
 done in a minute.
 
-![](https://cdn-images-1.medium.com/max/2600/1*NvweODiISDEHfQyWF4j7SA.png)
+![](/images/legacy/1*NvweODiISDEHfQyWF4j7SA.png)
 
 Windows key could replace what you have on OS X, with Window + s, you could just
 launch the search bar and search for anything you would like, pretty much close
@@ -44,7 +44,7 @@ to Spotlight you have on OS X. Also you could drag the programs you commonly
 used to the bottom bar, with Window + <num> then you could launch the program
 without your hands leaving the keyboard.
 
-![](https://cdn-images-1.medium.com/max/2400/1*sF5hdXyor8Bb2JzKdFL6PQ.png)
+![](/images/legacy/1*sF5hdXyor8Bb2JzKdFL6PQ.png)
 
 A few of long wanted hotkeys was also added: like Window + up to maximize the
 window, Window + left or right to align the focus window to half of the screen.

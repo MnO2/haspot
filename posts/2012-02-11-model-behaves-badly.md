@@ -7,7 +7,7 @@ categories:
 ---
 這是兩本書的合併心得。 一本是經典作新自由主義(Neoliberalism)戰神Milton Friedman的Free to choose， 另一本則是計量金融大老Emanuel Derman的新書Models behaving badly。
 
-![](https://cdn-images-1.medium.com/max/2400/0*fkCeTzbJtfD3CXpR.jpg)
+![](/images/legacy/0*fkCeTzbJtfD3CXpR.jpg)
 
 雖身為一個諾貝爾獎得主，Milton Friedman一向擅長用清晰的邏輯跟迅速的反應跟大眾推銷他的信念， Free to choose這一本書源自於一系列的關於他的電視訪問， 他認為電視節目有製作長度的限制， 用一本書反而能更清楚地表達他的理念。 此書讀來並不艱澀， 除了一些現今常聽到的經濟概念(例如對外部性課稅)， 書中最強調的還是探討什麼是自由，什麼是平等，為什麼我們應該要求政府減少干預讓市場看不見的手自己運作。 整個立論的過程很難挑出瑕疵，至少在他那個年代如此。 於是他的學說開始風行， 政府開始移除自從小羅斯福新政之後的各種管制， 並踏上全球化自由貿易之路。 他自己也成為坐鎮芝加哥的芝加哥學派(貨幣學派)大老，教出無數徒子徒孫。 現今的葛林斯潘跟柏南克可以說都受貨幣學派影響很深。
 
