@@ -161,6 +161,15 @@ hakyllSetting conf = do
             >>= loadAndApplyTemplate "templates/archive.html" headingsCtx
             >>= relativizeUrls
 
+      create ["sitemap.xml"] $ do
+        route idRoute
+        compile $ do
+          posts <- recentFirst =<< loadAllSnapshots  "posts/*" "teaser"
+          let sitemapCtx = listField "posts" postCtx (return posts) `mappend`
+                            (blogCtx conf) `mappend`
+                            defaultContext
+          makeItem ""
+            >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
 
       create ["rss/feed.xml"] $ do
           route idRoute
