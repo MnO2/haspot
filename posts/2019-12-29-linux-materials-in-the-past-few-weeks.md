@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux materials in the past few weeks"
+title: "Linux materials I read in the past few weeks"
 date: 2019-12-29 22:14 
 comments: true
 categories: 
