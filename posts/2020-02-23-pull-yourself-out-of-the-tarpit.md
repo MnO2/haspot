@@ -14,7 +14,7 @@ I had experienced burned-out in the past two years. The symptoms of burned-out c
 I explored and came out my own methodology, I have tried it out on my friends seeking my advice and the experiments so far look positive. It's not for every one, but if you are from similar background as mine, you might find the methodology helpful. My background is:
 
 1. Analytical personality, with strong belief in Science or the philosophy foundation established by Karl Popper / Thomas Kuhn.
-2. Agnosticism or Atheism, where you don't lie your belief system on "believing in god" as the first principle and derive that these all difficulties in life are challenges designed from god. And I believe eventually make through this.
+2. Agnosticism or Atheism, where you don't lie your belief system on "believing in god" as the first principle and derive that these all difficulties in life are challenges designed from god, and you believe that eventually you would make through this.
 
 I noticed that my methodology is very software operational influenced, or could be logically structured like this:
 
