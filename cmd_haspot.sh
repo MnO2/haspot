@@ -29,6 +29,7 @@ sub_help() {
 }
 
 sub_deploy() {
+  brew install coreutils
   TARGET_DIR=$(grealpath ../mno2.github.io)
   TIMESTAMP=$(date +%s)
 
