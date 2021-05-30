@@ -2,5 +2,5 @@ flags: {}
 extra-package-dbs: []
 packages:
 - '.'
-resolver: lts-14.14
-extra-deps: ["hakyll-4.13.0.1", "lrucache-1.2.0.1@sha256:18fc3d7052012c7ab3cd395160f34b53c5e1ec5379cc45185baf35b90ffadc2e"]
+resolver: lts-17.8
+extra-deps: ["hakyll-4.14.0.0", "lrucache-1.2.0.1"]
