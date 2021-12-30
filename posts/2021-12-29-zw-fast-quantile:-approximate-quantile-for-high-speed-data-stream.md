@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "zw-fast-quantile: Approximate Quantile for high-speed data stream"
+title: "zw-fast-quantile: Approximate Quantile for high-speed data stream in Rust"
 date: 2021-12-29 23:54 
 comments: true
 categories: 
