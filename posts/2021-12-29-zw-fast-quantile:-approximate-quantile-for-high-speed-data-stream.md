@@ -57,6 +57,7 @@ To benchmark the memory usage, by storing complete 100M values in the `Vec` and 
 
 
 Implementing `zw-fast-quantile` is a lot of fun and I learned a lot. By reading the review [paper](https://arxiv.org/pdf/2004.08255.pdf) now I understand we can categorize the approximate quantile algorithm by different use cases. They could be
+
 1. Streaming Model: Your data would arrive one by one and you might not know the size of your stream beforehand. You should be able to calculate the result in one pass without blowing up the memory. You might also improve the algorithm complexity if you know that you just gonna query the quantiles for the trailing N values.
 2. Distributed Model: where you have a network of nodes, each of them have some values. However, the communication cost is high and you would like to avoid the communication cost as much as possible.
 3. Update Time: In the real-time application like video/audio streaming, your data update would be very fast and it requires you the low latency on your update time. You would like to strike a balance between update time and the space complexity and accuracy.
