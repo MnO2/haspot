@@ -1,0 +1,4 @@
+# Only the built site and the nginx config go into the image.
+*
+!_site/
+!default.conf

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+$partial("templates/head.html")$
+<body>
+$partial("templates/nav.html")$
+  <main class="content" role="main">
+$for(posts)$
+    <article class="post">
+$partial("templates/teaser.html")$
+    </article>
+$endfor$
+
+    <nav class="pagination" aria-label="Pagination">
+$if(previousPageUrl)$
+      <span class="newer-posts"><a href="$previousPageUrl$">&larr; Newer Posts</a></span>
+$endif$
+$if(nextPageUrl)$
+      <span class="older-posts"><a href="$nextPageUrl$">Older Posts &rarr;</a></span>
+$endif$
+    </nav>
+    <div class="page-number is-center">Page $currentPageNum$ of $numPages$</div>
+
+$partial("templates/footer.html")$
+  </main>
+</body>
+</html>

@@ -1,6 +1,10 @@
-flags: {}
-extra-package-dbs: []
+# Stackage snapshot pinning GHC and every library version.
+# LTS 24.x ships GHC 9.10 and hakyll 4.16.x; see https://www.stackage.org/lts
+resolver: lts-24.57
+
 packages:
-- '.'
-resolver: lts-17.8
-extra-deps: ["hakyll-4.14.0.0", "lrucache-1.2.0.1"]
+- .
+
+# hakyll and its dependencies are all part of the snapshot, so no extra-deps
+# are needed. Add entries here only when pulling a package that is not in LTS.
+extra-deps: []

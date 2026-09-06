@@ -1,24 +1,20 @@
 <!doctype html>
-<html>
-    $partial("templates/header.html")$
-    <body>
-        <div class="pure-menu pure-menu-horizontal">
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="/" class="pure-menu-link">Home</a></li>
-                <li class="pure-menu-item"><a href="/archive.html" class="pure-menu-link">Archive</a></li>
-                <li class="pure-menu-item"><a href="/rss/feed.xml" class="pure-menu-link">Subscribe</a></li>
-            </ul>
-        </div>
-        <main class="content" role="main">
-          <div class="pure-g">
-            <div class="pure-u-md-1-5"></div>
-            <div class="pure-u-1 pure-u-md-3-5">
-              $for(posts)$
-              <h2 class="post-title"><a href="$url$">$title$</a></h2>
-              $endfor$
-            </div>
-            <div class="pure-u-md-1-5"></div>
-          </div>
-        </main>
-    </body>
+<html lang="en">
+$partial("templates/head.html")$
+<body>
+$partial("templates/nav.html")$
+  <main class="content" role="main">
+    <h1 class="archive-heading">Archive</h1>
+    <ul class="archive-list">
+$for(posts)$
+      <li class="archive-item">
+        <time datetime="$isodate$">$date$</time>
+        <a href="$url$">$title$</a>
+      </li>
+$endfor$
+    </ul>
+
+$partial("templates/footer.html")$
+  </main>
+</body>
 </html>

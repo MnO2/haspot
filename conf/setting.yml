@@ -1,10 +1,16 @@
+# Site-wide settings read by haspot at start-up.  See README.md for the
+# meaning of each key.  Keys under "blog" marked optional may be removed.
 author:
     name: Paul Meng
-    email: me@paulme.ng 
-    intro: I used be a Haskeller like you, until I have an arrow in my knee. 
+    email: me@paulme.ng
+    intro: I used be a Haskeller like you, until I have an arrow in my knee.
 blog:
     root_url: https://blog.paulme.ng
     title: "Paul Meng's Blog"
     description: ""
     about_page_link: /about
-    google_analytics_id: UA-140890995-1 
+    # optional: Google Analytics measurement id (GA4 ids look like G-XXXXXXXXXX;
+    # Universal Analytics "UA-" ids stopped collecting data in 2023).
+    google_analytics_id: UA-140890995-1
+    # optional: Google Search Console verification token.
+    google_site_verification: AhCspkSlkxfv5A28XyOOTijnA59_q-V8rJzKakb4CFA

@@ -1,22 +1,17 @@
-.bundle
-.DS_Store
-.sass-cache
-.gist-cache
-.pygments-cache
-_deploy
-public
-sass.old
-source.old
-source/_stash
-source/stylesheets/screen.css
-vendor
-node_modules
-_cache/
+# Hakyll output
 _site/
-site
+_cache/
+
+# Haskell build artefacts
+.stack-work/
+dist/
+dist-newstyle/
 *.hi
 *.o
-.cabal-sandbox/
-cabal.sandbox.config
-dist/
-.stack-work
+*.dyn_hi
+*.dyn_o
+
+# Editors and OS
+.DS_Store
+*.swp
+*~

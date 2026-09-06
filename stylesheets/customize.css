@@ -1,226 +1,303 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+/* =====================================================
+   HASPOT BLOG — APPLE-INSPIRED REDESIGN
+   ===================================================== */
+
+/* ---- TOKENS ---- */
+:root {
+  --color-text:      #1d1d1f;
+  --color-secondary: #6e6e73;
+  --color-tertiary:  #aeaeb2;
+  --color-bg:        #ffffff;
+  --color-surface:   #f5f5f7;
+  --color-border:    #d2d2d7;
+  --color-accent:    #0066cc;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+               "Noto Sans TC", "Noto Sans JP", sans-serif;
+  --font-serif: "Noto Serif TC", Georgia, serif;
+  --font-mono:  ui-monospace, "SF Mono", Menlo, "Inconsolata", monospace;
+
+  --col-width: 660px;
+  --nav-height: 52px;
 }
 
-/*
- * -- BASE STYLES --
- * Most of these are inherited from Base, but I want to change a few.
- */
+/* ---- RESET ---- */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ---- BASE ---- */
+html { font-size: 17px; }
+
 body {
-    line-height: 1.7em;
-    color: block;
-    font-size: 13px;
-    font-family: sans-serif;
-    background-color: rgb(248, 248, 248);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-label {
-    color: #34495e;
+/* ---- NAVIGATION (pure-menu override) ---- */
+.pure-menu {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(210,210,215,0.5);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
 }
 
-code, tt {
-    padding: 1px 3px;
-    font-family: Inconsolata, monospace, sans-serif;
-    font-size: 0.85em;
-    white-space: pre;
-    border: 1px solid #E3EDF3;
-    background: #F7FAFB;
-    border-radius: 2px;
+.pure-menu-list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-pre {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 1.6em 0;
-    border: 1px solid #E3EDF3;
-    width: 100%;
-    padding: 10px;
-    font-family: Inconsolata, monospace, sans-serif;
-    font-size: 0.9em;
-    white-space: pre;
-    overflow: auto;
-    background: #F7FAFB;
-    border-radius: 3px;
+.pure-menu-link {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-text) !important;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  padding: 0 !important;
+  transition: color 0.15s;
+}
+.pure-menu-link:hover { color: var(--color-accent) !important; }
+
+/* ---- LAYOUT ---- */
+.content {
+  max-width: calc(var(--col-width) + 48px);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-pre code, tt {
-    font-size: inherit;
-    white-space: -moz-pre;
-    white-space: pre;
-    background: transparent;
-    border: none;
-    padding: 0;
-}
-
-table {
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 1.6em 0;
-    width:100%;
-    max-width: 100%;
-    background-color: transparent;
-}
-
-table th,
-table td {
-    padding: 8px;
-    line-height: 20px;
-    text-align: left;
-    vertical-align: top;
-    border-top: 1px solid #efefef;
-}
-
-table th { color: #000; }
-
-table caption + thead tr:first-child th,
-table caption + thead tr:first-child td,
-table colgroup + thead tr:first-child th,
-table colgroup + thead tr:first-child td,
-table thead:first-child tr:first-child th,
-table thead:first-child tr:first-child td {
-    border-top: 0;
-}
-
-table tbody + tbody { border-top: 2px solid #efefef; }
-
-table table table { background-color: #fff; }
-
-table tbody > tr:nth-child(odd) > td,
-table tbody > tr:nth-child(odd) > th {
-    background-color: #f6f6f6;
-}
-
-table.plain tbody > tr:nth-child(odd) > td,
-table.plain tbody > tr:nth-child(odd) > th {
-   background: transparent;
-}
-
+/* ---- POST TITLE ---- */
 .post-title {
-    margin: 15;
-    line-height: 1.7em;
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-align: left !important;
+  margin: 72px 0 16px;
 }
 
 .post-title a {
-    text-decoration: none;
-    color: #34495e;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.post-title a:hover { color: var(--color-text); }
+
+/* ---- POST META ---- */
+.post-meta {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--color-border);
 }
 
+/* ---- BODY TEXT ---- */
+.slot-content p {
+  margin-bottom: 1.6em;
+  color: var(--color-text);
+}
+
+.slot-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 2.5em 0 0.75em;
+}
+
+.slot-content h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 2em 0 0.5em;
+}
+
+.slot-content a {
+  color: var(--color-text);
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+  transition: text-decoration-color 0.15s;
+}
+.slot-content a:hover { text-decoration-color: var(--color-text); }
+
+/* ---- CODE ---- */
+code, tt {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: none;
+  white-space: pre;
+}
+
+pre {
+  background: var(--color-surface);
+  border: none;
+  border-radius: 10px;
+  padding: 20px 24px;
+  overflow-x: auto;
+  margin: 2em 0;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+pre code, pre tt {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+}
+
+/* ---- BLOCKQUOTE ---- */
+blockquote {
+  border-left: 2px solid var(--color-border);
+  margin: 2em 0;
+  padding-left: 24px;
+  color: var(--color-secondary);
+}
+
+/* ---- IMAGES ---- */
 .slot-content img {
-    display: block;
-    max-width: 100%;
-    margin: 0 auto;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2em auto;
 }
 
-.pure-img-responsive {
-    max-width: 100%;
-    height: auto;
+/* ---- TABLES ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 0.9em;
+}
+table th, table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+table th { font-weight: 500; }
+table tbody > tr:nth-child(odd) > td,
+table tbody > tr:nth-child(odd) > th { background: transparent; }
+
+/* ---- POST FOOTER ---- */
+.post-footer {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
 }
 
-.is-center {
-    text-align: center;
+.post-footer a {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+.post-footer a:hover { color: var(--color-text); }
+
+/* ---- INDEX PAGE ---- */
+.post + .post { border-top: 1px solid var(--color-border); }
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 64px 0 16px;
+  font-size: 0.875rem;
+}
+.pagination a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.pagination a:hover { color: var(--color-text); }
+.pagination .older-posts { margin-left: auto; }
+
+.page-number {
+  font-size: 0.8125rem;
+  color: var(--color-tertiary);
+  font-variant-numeric: tabular-nums;
 }
 
-/* We want to give the content area some more padding */
-.content {
-    padding: 1em 1em 3em;
+/* ---- SITE FOOTER ---- */
+.site-footer {
+  margin: 48px 0 64px;
+  font-size: 0.8125rem;
+  color: var(--color-tertiary);
 }
 
+.is-center { text-align: center; }
 
-/* 
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
-*/
-
-@media (min-width: 1281px) {
-    body {
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: rgba(0, 0, 0, 0.9);
-        font-style: normal;
-        line-height: 1.7em;
-    }
+/* ---- ARCHIVE LIST ---- */
+.archive-heading {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 64px 0 40px;
 }
 
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-*/
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-    body {
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: rgba(0, 0, 0, 0.9);
-        font-style: normal;
-        line-height: 1.7em;
-    }
+.archive-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 768px to 1024px
-*/
+.archive-item {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-surface);
+  transition: opacity 0.15s;
+}
+.archive-item:first-child { border-top: 1px solid var(--color-surface); }
+.archive-item:hover { opacity: 0.7; }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    body {
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: rgba(0, 0, 0, 0.9);
-        font-style: normal;
-        line-height: 1.7em;
-    }
+.archive-item time {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: var(--color-tertiary);
+  font-variant-numeric: tabular-nums;
+  min-width: 88px;
 }
 
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    body {
-        font-size: 1.2rem;
-        font-weight: 400;
-        color: rgba(0, 0, 0, 0.9);
-        font-style: normal;
-        line-height: 1.7em;
-    }
+.archive-item a {
+  font-size: 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 1.6;
 }
 
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
-
-@media (min-width: 481px) and (max-width: 767px) {
-    body {
-        font-size: 1.2rem;
-        font-weight: 400;
-        color: rgba(0, 0, 0, 0.9);
-        font-style: normal;
-        line-height: 1.7em;
-    }
-}
-
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
-
-@media (min-width: 320px) and (max-width: 480px) {
-    body {
-        font-size: 1.2rem;
-        font-weight: 400;
-        color: rgba(0, 0, 0, 0.9);
-        font-style: normal;
-        line-height: 1.7em;
-    }
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  .post-title { margin-top: 48px; }
+  .archive-item { flex-direction: column; gap: 2px; }
+  .archive-item time { min-width: unset; }
 }

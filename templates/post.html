@@ -1,1 +1,21 @@
+<!doctype html>
+<html lang="$if(lang)$$lang$$else$en$endif$">
+$partial("templates/head.html")$
+<body>
+$partial("templates/nav.html")$
+  <main class="content" role="main">
+    <article class="post">
+      <h1 class="post-title">$title$</h1>
+      <div class="post-meta"><time datetime="$isodate$">$date$</time></div>
+      <div class="slot-content">
 $body$
+      </div>
+    </article>
+    <footer class="post-footer">
+      <a href="/archive.html">&larr; Archive</a>
+    </footer>
+
+$partial("templates/footer.html")$
+  </main>
+</body>
+</html>
